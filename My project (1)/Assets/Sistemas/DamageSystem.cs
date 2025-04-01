@@ -1,46 +1,63 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageSystem : MonoBehaviour
 {
     [SerializeField] private int damageAmount = 10;
     [SerializeField] private float damageRadius = 1.5f;
-    [SerializeField] private LayerMask targetLayer;
     [SerializeField] private bool isPlayer;
     [SerializeField] private KeyCode attackKey = KeyCode.Mouse0;
+    [SerializeField] private float attackCooldown = 1f;
 
-    private float _attackCooldown = 1f;
-    private float _lastAttackTime;
+    private float lastAttackTime;
 
     private void Update()
     {
         if (isPlayer && Input.GetMouseButtonDown(0))
         {
             Attack();
+            Debug.Log("atacó");
         }
     }
 
-    public void Attack()
+    private void OnTriggerEnter(Collider other)
     {
-        if (Time.time - _lastAttackTime < _attackCooldown) return;
-
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, damageRadius, targetLayer))
+        if (isPlayer)
         {
-            HealthSystem targetHealth = hit.collider.GetComponent<HealthSystem>();
-            if (targetHealth != null)
+            if (other.CompareTag("Player"))
             {
-                targetHealth.TakeDamage(damageAmount);
-                Debug.Log(gameObject.name + " attacked" + hit.collider.name);
+                AttackTarget(other);
+            }
+
+            Debug.Log("colisión");
+        }
+    }
+
+    private void Attack()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, damageRadius);
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.CompareTag("Enemy"))
+            {
+                AttackTarget(hitCollider);
             }
         }
 
-        _lastAttackTime = Time.time;
     }
-    private void OnTriggerEnter(Collider other)
+
+    private void AttackTarget(Collider target)
     {
-        if (!isPlayer && other.CompareTag("Player"))
+        if (Time.time - lastAttackTime < attackCooldown) return;
+
+        HealthSystem targetHealth = target.GetComponent<HealthSystem>();
+        if (targetHealth != null)
         {
-            Attack();
+            targetHealth.TakeDamage(damageAmount);
+            Debug.Log(gameObject.name + "atacó a" + target.name);
         }
+
+        lastAttackTime = Time.time;
     }
 }
+    
