@@ -26,5 +26,6 @@ public class HealthSystem : MonoBehaviour
     private void Death()
     {
         Debug.Log("Muerto");
+        Destroy(gameObject);
     }
 }

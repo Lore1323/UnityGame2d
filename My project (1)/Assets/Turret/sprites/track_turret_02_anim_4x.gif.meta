@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -129,13 +129,13 @@ TextureImporter:
       name: track_turret_02_anim_4x_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 512
+        width: 511
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 30, y: 26, z: 415, w: 16}
       customData: 
       outline: []
       physicsShape: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 28a4ceab78b813349aa046165cb9aa8d
     internalID: 0
     vertices: []
     indices: 

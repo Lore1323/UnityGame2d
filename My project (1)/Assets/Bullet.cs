@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class Bullet : MonoBehaviour
 {
@@ -7,9 +8,10 @@ public class Bullet : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private float bulletSpeed = 5f;
-
+    [SerializeField] private int DamagePerBullet = 30;
     private Transform target;
 
+    
     public void SetTarget(Transform _target)
     {
         target = _target; 
@@ -24,6 +26,7 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Destroy(target);
+        other.gameObject.GetComponent<HealthSystem>().TakeDamage(DamagePerBullet);
+        Destroy(gameObject);
     }
 }

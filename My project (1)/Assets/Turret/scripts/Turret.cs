@@ -35,15 +35,17 @@ public class Turret : MonoBehaviour
         if (!CheckTargetIsInRange())
         {
             target = null;
-        }else{ 
-        timeUntilFire = Time.deltaTime;
-            if (timeUntilFire >=1f/ Cadence)
+        }
+        else
+        {
+            timeUntilFire += Time.deltaTime;
+            if (timeUntilFire >= 1f / Cadence)
             {
                 shoot();
                 timeUntilFire = 0f;
             }
+
         }
-       
     }
     private void RotateTurretTarget()
     {
@@ -68,6 +70,7 @@ public class Turret : MonoBehaviour
 
     private void shoot()
     {
+        Debug.Log("dispare");
         GameObject bulletObj= Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         Bullet bulletScript = bulletObj.GetComponent<Bullet>();
         bulletScript.SetTarget(target);

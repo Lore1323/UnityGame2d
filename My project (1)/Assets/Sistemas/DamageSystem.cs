@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DamageSystem : MonoBehaviour
 {
-    [SerializeField] private int damageAmount = 10;
+    [SerializeField] public int damageAmount = 10;
     [SerializeField] private float damageRadius = 1.5f;
     [SerializeField] private bool isPlayer;
     [SerializeField] private KeyCode attackKey = KeyCode.Mouse0;
@@ -33,7 +33,7 @@ public class DamageSystem : MonoBehaviour
         }
     }
 
-    private void Attack()
+    public void Attack()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, damageRadius);
         foreach (var hitCollider in hitColliders)
