@@ -2,15 +2,33 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private PlayerController playerControls;
+    private Animator animator;
+
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        playerControls = new PlayerController();
+    }
+    private void OnEnable()
+    {
+        playerControls.Enable();
+    }
+    private void Start()
+    {
+        playerControls.Combat.Attack.started += _ => Attack();
+    }
+    private void Attack()
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        GetPlayerLook();
+    }
+    private void GetPlayerLook()
+    {
+
     }
 }

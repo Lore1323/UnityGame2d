@@ -1,6 +1,8 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
@@ -9,7 +11,7 @@ public class Movement : MonoBehaviour
     private PlayerController playerController;
     private Vector2 moved;
     private Rigidbody2D rb;
-
+    
     private Animator myAnimator;
     private SpriteRenderer mySpriteRenderer;
 
@@ -19,6 +21,11 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
+        
+    }
+    private void Start()
+    {
+        playerController.Combat.Attack.started += _ => Attacks();
     }
 
     private void OnEnable()
@@ -29,8 +36,9 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         PlayerInput();
-
+        
     }
+
     private void FixedUpdate()
     {
         Move();
@@ -38,11 +46,11 @@ public class Movement : MonoBehaviour
 
     private void PlayerInput()
     {
-        moved = playerController.MovemenT.Move.ReadValue<Vector2>();
-
+        moved = playerController.MovemenT.Move.ReadValue<Vector2>();  
         myAnimator.SetFloat("MoveX", moved.x);
         myAnimator.SetFloat("MoveY", moved.y);
     }
+
     void Move()
     {
         rb.MovePosition(rb.position + moved * (moveSpeed * Time.fixedDeltaTime));
@@ -52,6 +60,11 @@ public class Movement : MonoBehaviour
         }else {
         mySpriteRenderer.flipX=true;      
         }
+        
+    }
+    void Attacks()
+    {
+        myAnimator.Play("Attack");
     }
 
 }
