@@ -12,15 +12,13 @@ public class HealthSystem : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        currentHealth = Mathf.Max(0,currentHealth);
-        
-        Debug.Log(damage);
+       currentHealth -= damage;
+       Debug.Log(gameObject.name + " takes damage: " + damage);
 
-        if (currentHealth <= 0)
-        {
-            Death();
-        }
+       if (currentHealth <= 0)
+       {
+           Death();
+       }
     }
 
     private void Death()
