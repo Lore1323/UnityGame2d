@@ -16,15 +16,18 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        distance = Vector2.Distance(transform.position, currentTarget.transform.position);
-        Vector2 direction = currentTarget.transform.position - transform.position;
-        direction.Normalize();
-        transform.position = Vector2.MoveTowards(this.transform.position, target.transform.position, speed * Time.deltaTime);
-        
+        if (target != null)
+        {
+            distance = Vector2.Distance(transform.position, currentTarget.transform.position);
+            Vector2 direction = currentTarget.transform.position - transform.position;
+            direction.Normalize();
+            transform.position = Vector2.MoveTowards(this.transform.position, target.transform.position, speed * Time.deltaTime);
+        }
         
     }
     
-    private void OnTriggerEnter(Collider other)
+    
+    private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Algo entró: " + other.name);
 
@@ -35,7 +38,8 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -43,9 +47,4 @@ public class Enemy : MonoBehaviour
             currentTarget = target;
         }
     }
-
-
-   
-    
-    
 }
