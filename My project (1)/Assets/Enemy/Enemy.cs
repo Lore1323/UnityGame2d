@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public float speed = 5f;
     private Transform currentTarget;
     private float distance;
+    public Transform playerTarget;
     
     void Start()
     {
@@ -21,7 +22,7 @@ public class Enemy : MonoBehaviour
             distance = Vector2.Distance(transform.position, currentTarget.transform.position);
             Vector2 direction = currentTarget.transform.position - transform.position;
             direction.Normalize();
-            transform.position = Vector2.MoveTowards(this.transform.position, target.transform.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(this.transform.position, currentTarget.transform.position, speed * Time.deltaTime);
         }
         
     }
@@ -34,7 +35,7 @@ public class Enemy : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player detectado");
-            currentTarget = other.transform;
+            currentTarget = playerTarget;
         }
     }
 
