@@ -324,10 +324,9 @@ GameObject:
   - component: {fileID: 1632735029152727339}
   - component: {fileID: 1534937354774270827}
   - component: {fileID: 1488886296376928405}
-  - component: {fileID: 5387617077592255511}
   - component: {fileID: 3996645419358163822}
   - component: {fileID: 2119860418832093247}
-  - component: {fileID: 5002803270306332337}
+  - component: {fileID: 5151226879721514296}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -345,7 +344,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.3731794, y: -0.12099019, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5510463849024566947}
@@ -396,7 +395,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 1f2b808deed244e18d31ba3c25ad903b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -443,23 +442,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
---- !u!114 &5387617077592255511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7084107281026271959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7058c3816ca0c0246bbafa46bc8cc058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageAmount: 10
-  damageRadius: 1.5
-  isPlayer: 1
-  attackKey: 323
-  attackCooldown: 1
 --- !u!114 &3996645419358163822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -497,11 +479,11 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &5002803270306332337
-BoxCollider2D:
+--- !u!70 &5151226879721514296
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -530,19 +512,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.027962208, y: -0.46137893}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.6, y: 3}
-    newSize: {x: 3.6, y: 3}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1.3630114, y: 2.0772421}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.4605885, y: 2.1380694}
+  m_Direction: 0
