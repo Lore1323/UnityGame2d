@@ -9,11 +9,13 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 1f;
 
-    private PlayerController playerController;
+    public PlayerController playerController;
     private Vector2 moved;
     private Rigidbody2D rb;
     private Animator myAnimator;
     private SpriteRenderer mySpriteRenderer;
+    public GameObject shop;
+    
     
     private void Awake()
     {
@@ -21,6 +23,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();  
+        
     }
     
     private void OnEnable()
@@ -44,6 +47,7 @@ public class Movement : MonoBehaviour
         myAnimator.SetFloat("MoveX", moved.x);
         myAnimator.SetFloat("MoveY", moved.y);
         playerController.Combat.Attack.started += _ => Attacks();
+        playerController.Interact.OpenShop.started += _ => OpenShop();
     }        
 
     void Move()
@@ -58,6 +62,12 @@ public class Movement : MonoBehaviour
     private void EndAttack()
     {
         myAnimator.SetBool("IsAttacking", false);
+    }
+    public void OpenShop()
+    {
+        Debug.Log("ando");
+        shop.SetActive(true);
+
     }
 
 }

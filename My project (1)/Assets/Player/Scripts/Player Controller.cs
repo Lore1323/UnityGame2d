@@ -199,6 +199,15 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenShop"",
+                    ""type"": ""Button"",
+                    ""id"": ""3d121964-0a3e-41d0-be91-738b15dc2b62"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -210,6 +219,17 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""def3c1e9-410c-4199-8d79-f7cad7802904"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenShop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -227,6 +247,7 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
         // Interact
         m_Interact = asset.FindActionMap("Interact", throwIfNotFound: true);
         m_Interact_Interact = m_Interact.FindAction("Interact", throwIfNotFound: true);
+        m_Interact_OpenShop = m_Interact.FindAction("OpenShop", throwIfNotFound: true);
     }
 
     ~@PlayerController()
@@ -502,6 +523,7 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Interact;
     private List<IInteractActions> m_InteractActionsCallbackInterfaces = new List<IInteractActions>();
     private readonly InputAction m_Interact_Interact;
+    private readonly InputAction m_Interact_OpenShop;
     /// <summary>
     /// Provides access to input actions defined in input action map "Interact".
     /// </summary>
@@ -517,6 +539,10 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Interact/Interact".
         /// </summary>
         public InputAction @Interact => m_Wrapper.m_Interact_Interact;
+        /// <summary>
+        /// Provides access to the underlying input action "Interact/OpenShop".
+        /// </summary>
+        public InputAction @OpenShop => m_Wrapper.m_Interact_OpenShop;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -546,6 +572,9 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @OpenShop.started += instance.OnOpenShop;
+            @OpenShop.performed += instance.OnOpenShop;
+            @OpenShop.canceled += instance.OnOpenShop;
         }
 
         /// <summary>
@@ -560,6 +589,9 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @OpenShop.started -= instance.OnOpenShop;
+            @OpenShop.performed -= instance.OnOpenShop;
+            @OpenShop.canceled -= instance.OnOpenShop;
         }
 
         /// <summary>
@@ -637,5 +669,12 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteract(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "OpenShop" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOpenShop(InputAction.CallbackContext context);
     }
 }
