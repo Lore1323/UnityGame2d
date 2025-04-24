@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 4061663465000585038}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.056, y: 0.314, z: 0}
+  m_LocalPosition: {x: -0.096, y: 1.329, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 6474541727147095242}
   - component: {fileID: 2549513619150927421}
   - component: {fileID: 8888874424378041908}
+  - component: {fileID: 3990847737816908953}
   m_Layer: 0
   m_Name: Turret02
   m_TagString: Untagged
@@ -59,8 +60,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.37, y: -1.38, z: 0}
-  m_LocalScale: {x: 2.317, y: 2.317, z: 2.317}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8824432686129450426}
   m_Father: {fileID: 0}
@@ -109,7 +110,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 7
-  m_Sprite: {fileID: 1534497308705747774, guid: b7f29d0f82aa2d64f9349c52f4322030, type: 3}
+  m_Sprite: {fileID: 2909458258800530498, guid: adeb4bdca499aa342b60b84a2d4e9d29, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -138,5 +139,42 @@ MonoBehaviour:
     m_Bits: 8
   bulletPrefab: {fileID: 1718105287227799152, guid: fc2ecaa356520c6478b6fd42e1dc609a, type: 3}
   firePoint: {fileID: 8824432686129450426}
-  Range: 5
-  Cadence: 1
+  Range: 25
+  Cadence: 5
+--- !u!70 &3990847737816908953
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7565819242163431569}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.02440381, y: 0.0061011314}
+  m_Size: {x: 2.3211923, y: 3.2177978}
+  m_Direction: 0
