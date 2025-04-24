@@ -1810,7 +1810,74 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      waste_no_space_64x64_gui_0: 1284621139829782720
+      waste_no_space_64x64_gui_1: -4533875095379622726
+      waste_no_space_64x64_gui_10: 1870337444943554185
+      waste_no_space_64x64_gui_11: 1893512744638024200
+      waste_no_space_64x64_gui_12: -2465061701517850455
+      waste_no_space_64x64_gui_13: -1495435871871845098
+      waste_no_space_64x64_gui_14: 8948861375421891106
+      waste_no_space_64x64_gui_15: 5918748472868313563
+      waste_no_space_64x64_gui_16: 3081876979438364820
+      waste_no_space_64x64_gui_17: 8751793966229703129
+      waste_no_space_64x64_gui_18: 3443733033558129586
+      waste_no_space_64x64_gui_19: 8723673008748301782
+      waste_no_space_64x64_gui_2: -5170117916789359340
+      waste_no_space_64x64_gui_20: -3717226181366403601
+      waste_no_space_64x64_gui_21: 3193790573405674443
+      waste_no_space_64x64_gui_22: 1612270819832008293
+      waste_no_space_64x64_gui_23: 8874778366983085920
+      waste_no_space_64x64_gui_24: 6349900094158220913
+      waste_no_space_64x64_gui_25: 3844912689894175178
+      waste_no_space_64x64_gui_26: 8590533259213624406
+      waste_no_space_64x64_gui_27: 7574441836365840873
+      waste_no_space_64x64_gui_28: -8562747887535939781
+      waste_no_space_64x64_gui_29: -8736615433684453292
+      waste_no_space_64x64_gui_3: -8415314118290862534
+      waste_no_space_64x64_gui_30: 8697503873341771986
+      waste_no_space_64x64_gui_31: -8996204756390495853
+      waste_no_space_64x64_gui_32: 8494070784931063935
+      waste_no_space_64x64_gui_33: -2338674763021628676
+      waste_no_space_64x64_gui_34: 2098102333667096134
+      waste_no_space_64x64_gui_35: 8955455301054210336
+      waste_no_space_64x64_gui_36: -392868604578602605
+      waste_no_space_64x64_gui_37: 2041508870656432737
+      waste_no_space_64x64_gui_38: 7140297485679637549
+      waste_no_space_64x64_gui_39: 3143836577679655664
+      waste_no_space_64x64_gui_4: -4080552490156788729
+      waste_no_space_64x64_gui_40: -558801708845295501
+      waste_no_space_64x64_gui_41: 1895655436797406495
+      waste_no_space_64x64_gui_42: -3773558264755905110
+      waste_no_space_64x64_gui_43: -8622412270202064206
+      waste_no_space_64x64_gui_44: -3275071339507628972
+      waste_no_space_64x64_gui_45: 6368958596950393753
+      waste_no_space_64x64_gui_46: -1417396365391410082
+      waste_no_space_64x64_gui_47: 3528632056572322955
+      waste_no_space_64x64_gui_48: 1622523788765390230
+      waste_no_space_64x64_gui_49: -3890146130690666964
+      waste_no_space_64x64_gui_5: 4369978780568979356
+      waste_no_space_64x64_gui_50: -6342459563136308902
+      waste_no_space_64x64_gui_51: 2255470483777133742
+      waste_no_space_64x64_gui_52: -5706429757069764333
+      waste_no_space_64x64_gui_53: -1347599285853444413
+      waste_no_space_64x64_gui_54: 2385238405868485680
+      waste_no_space_64x64_gui_55: 7578810835805408382
+      waste_no_space_64x64_gui_56: -174347243340277964
+      waste_no_space_64x64_gui_57: 5551470845776946149
+      waste_no_space_64x64_gui_58: 8366987698176086039
+      waste_no_space_64x64_gui_59: 3265095972951377150
+      waste_no_space_64x64_gui_6: -8189923569589891761
+      waste_no_space_64x64_gui_60: 3755572479806482012
+      waste_no_space_64x64_gui_61: 6598699709711020724
+      waste_no_space_64x64_gui_62: 3465369464608456891
+      waste_no_space_64x64_gui_63: -5968707497667718078
+      waste_no_space_64x64_gui_64: -6650743560625497573
+      waste_no_space_64x64_gui_65: 5262016797005528777
+      waste_no_space_64x64_gui_66: -3912475685164582541
+      waste_no_space_64x64_gui_7: -7151064324339093855
+      waste_no_space_64x64_gui_8: -6752682122522284888
+      waste_no_space_64x64_gui_9: 1472335366050057546
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

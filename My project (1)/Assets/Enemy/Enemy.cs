@@ -4,6 +4,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private int damage;
+    [SerializeField] private int health;
+    private int DealtDamage;
     public Transform target;
     public float speed = 5f;
     private Transform currentTarget;
@@ -36,6 +38,10 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("Player detectado");
             currentTarget = playerTarget;
+
+            DealtDamage = 1;
+            TakeDamage();
+            Debug.Log("Daño");
         }
     }
 
@@ -47,5 +53,22 @@ public class Enemy : MonoBehaviour
             Debug.Log("Player Salió");
             currentTarget = target;
         }
+    }
+
+    public void TakeDamage()
+    {
+        health -= DealtDamage;
+
+        if (health <= 0)
+        {
+            Die();
+            Debug.Log("Muere");
+        }
+        
+    }
+
+    void Die()
+    {
+        ObjectPoolManager.ReturnObjectToPool(this.gameObject);
     }
 }
