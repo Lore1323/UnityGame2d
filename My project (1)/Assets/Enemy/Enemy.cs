@@ -1,16 +1,25 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEditor;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private int damage;
     [SerializeField] private int health;
-    private int DealtDamage;
+    public int DealtDamage;
     public Transform target;
     public float speed = 5f;
     private Transform currentTarget;
     private float distance;
     public Transform playerTarget;
+    private float detectPlayer;
+    
+    private void OnDrawGizmosSelected()
+    {
+        Handles.color = Color.cyan;
+        Handles.DrawWireDisc(transform.position, transform.forward, detectPlayer );
+    }
     
     void Start()
     {
@@ -30,19 +39,15 @@ public class Enemy : MonoBehaviour
     }
     
     
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Algo entró: " + other.name);
 
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player detectado");
             currentTarget = playerTarget;
-
-            DealtDamage = 1;
-            TakeDamage();
-            Debug.Log("Daño");
         }
+        
     }
 
 
@@ -50,7 +55,6 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player Salió");
             currentTarget = target;
         }
     }

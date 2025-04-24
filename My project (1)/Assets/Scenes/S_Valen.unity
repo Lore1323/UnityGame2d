@@ -223,6 +223,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2376669897987737906, guid: c2b10e270bba6f04e986d595d3550e56, type: 3}
+      propertyPath: attackDamage
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7063592945626848021, guid: c2b10e270bba6f04e986d595d3550e56, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.6053448
@@ -486,6 +490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   shop: {fileID: 0}
+  isAttack: 0
 --- !u!1001 &8608290735347377822
 PrefabInstance:
   m_ObjectHideFlags: 0
