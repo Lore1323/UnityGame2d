@@ -12,13 +12,7 @@ public class PlaceTurret : MonoBehaviour
     private GameObject turret;
     
    
-    private void OnMouseDown()
-    {
-        if (turret != null) return;
-        ShopTower turretToBuild  =BuildTurrets.main.GetSelectedTurret();
-        turret = Instantiate(turretToBuild.turretPrefab,transform.position, Quaternion.identity);
-        Debug.Log("Build Tower Here: " + name);
-    }
+    
 
     void Update()
     {
@@ -34,7 +28,7 @@ public class PlaceTurret : MonoBehaviour
                 if (hit.collider != null) // Si golpea algo en la capa del Tilemap
                 {
                     ShopTower turretToBuild = BuildTurrets.main.GetSelectedTurret();
-                    Instantiate(turret, hit.point, Quaternion.identity);
+                    turret = Instantiate(turretToBuild.turretPrefab, hit.point, Quaternion.identity);
                     UIShop.TurretSelected = false;
                     Shop.SetActive(true);
                 }

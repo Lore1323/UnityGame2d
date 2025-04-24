@@ -46,7 +46,6 @@ public class Movement : MonoBehaviour
         if (isAttack == false)
         {
             Move();
-            Debug.Log("no esta atacando");
         }  
         
     }

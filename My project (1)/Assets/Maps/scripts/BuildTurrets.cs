@@ -4,10 +4,9 @@ using UnityEngine;
 public class BuildTurrets : MonoBehaviour
 {
     public static BuildTurrets main;
-    public static bool IsSelected= false;  
 
     [Header("References")]
-    [SerializeField] private ShopTower[] turretPrefabs;
+    [SerializeField] private ShopTower[] towers;
 
     private int selectedTurret = 0;
     public LayerMask placeTurret;
@@ -19,15 +18,12 @@ public class BuildTurrets : MonoBehaviour
     
     public ShopTower GetSelectedTurret()
     {
-        return turretPrefabs[selectedTurret];
+        return towers[selectedTurret];
     }
     public void SetSelectecTurret(int _selectedTurret)
-    {
-        if (IsSelected == false)
-        {
-            selectedTurret = _selectedTurret;
-            IsSelected = true;
-        }
+    { 
+            selectedTurret = _selectedTurret;    
+            Debug.Log("torreta Seleccionada");   
     }
 
 }
