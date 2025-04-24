@@ -15,15 +15,18 @@ public class Movement : MonoBehaviour
     private Animator myAnimator;
     private SpriteRenderer mySpriteRenderer;
     public GameObject shop;
-    
-    
+    public static bool isShopOpen =false;
+    public bool isAttack=false;
+    public static bool modeAttack = true;
+
+
+
     private void Awake()
     {
         playerController = new PlayerController();
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();  
-        
     }
     
     private void OnEnable()
@@ -32,22 +35,31 @@ public class Movement : MonoBehaviour
     }
 
     private void Update()
-    {
-        PlayerInput();   
+    {  
+        if (isShopOpen==false)
+        PlayerInput();
+        
     }
 
     private void FixedUpdate()
     {
-        Move();
+        if (isAttack == false)
+        {
+            Move();
+            Debug.Log("no esta atacando");
+        }  
+        
     }
 
     private void PlayerInput()
     {
-        moved = playerController.MovemenT.Move.ReadValue<Vector2>();  
+        if (modeAttack == true)
+        {
+        moved = playerController.MovemenT.Move.ReadValue<Vector2>();
         myAnimator.SetFloat("MoveX", moved.x);
         myAnimator.SetFloat("MoveY", moved.y);
         playerController.Combat.Attack.started += _ => Attacks();
-        playerController.Interact.OpenShop.started += _ => OpenShop();
+        }
     }        
 
     void Move()
@@ -56,18 +68,18 @@ public class Movement : MonoBehaviour
     }
     void Attacks()
     {
-        myAnimator.SetBool("IsAttacking", true);
-        
+        if (modeAttack == true)
+        {
+            if (isShopOpen == false)
+            {
+                myAnimator.SetBool("IsAttacking", true);
+                isAttack = true;
+            }
+        }
     }
     private void EndAttack()
     {
         myAnimator.SetBool("IsAttacking", false);
-    }
-    public void OpenShop()
-    {
-        Debug.Log("ando");
-        shop.SetActive(true);
-
-    }
-
+        isAttack= false;
+    }   
 }

@@ -5,17 +5,47 @@ using UnityEngine.UIElements;
 
 public class UIShop : MonoBehaviour
 {
+
     public GameObject Shop;
-    public GameObject Player;
-    
+    public PlayerController Controller;    
+    public static bool TurretSelected=false;
+
     private void Awake()
     {
-        Movement script=Player.GetComponent<Movement>();
+        Controller = new PlayerController();
+    }
+
+    private void OnEnable()
+    {
+        Controller.Enable();    
     }
 
     private void Update()
     {
-        
+        Controller.Interact.OpenShop.started += ctx => OpenShop();
+        Controller.Interact.OpenShop.started -= ctx => OpenShop();
     }
 
+    public void OpenShop()
+    {
+        Movement.modeAttack = false;
+        Movement.isShopOpen = true;
+        bool isActive = Shop.activeSelf;
+        
+        Shop.SetActive(!isActive);
+        Time.timeScale = isActive ? 1f : 0f;
+        if (isActive)
+        {
+            Movement.isShopOpen = false;
+            Movement.modeAttack=true;
+        }
+    }
+    public void SelectedTurret()
+    {
+        TurretSelected = true;
+        if (TurretSelected == true)
+        {
+            Shop.SetActive(false);    
+        }
+    }
 }

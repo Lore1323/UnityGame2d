@@ -202,7 +202,7 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""OpenShop"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""3d121964-0a3e-41d0-be91-738b15dc2b62"",
                     ""expectedControlType"": """",
                     ""processors"": """",
