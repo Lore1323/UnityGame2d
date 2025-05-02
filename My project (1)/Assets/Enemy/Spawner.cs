@@ -5,6 +5,7 @@ public class Spawner : MonoBehaviour
     public GameObject prefab;
     public float spawnInterval = 3f;
     public Transform[] spawnPoints;
+    public int spawnAmount = 5;
     
     private float timer;
     
@@ -14,10 +15,11 @@ public class Spawner : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer >= spawnInterval)
+        if (timer >= spawnInterval & spawnAmount > 0)
         {
             Spawn();
             timer = 0f;
+            spawnAmount -= 1;
         }
     }
 
