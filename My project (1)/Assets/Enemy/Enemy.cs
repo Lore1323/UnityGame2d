@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private int damage;
     [SerializeField] private int health;
+    [SerializeField] private int worth;
     public int DealtDamage;
     public Transform target;
     public float speed = 5f;
@@ -14,6 +15,7 @@ public class Enemy : MonoBehaviour
     private float distance;
     public Transform playerTarget;
     private float detectPlayer;
+    
     
     private void OnDrawGizmosSelected()
     {
@@ -67,6 +69,7 @@ public class Enemy : MonoBehaviour
         {
             Die();
             Debug.Log("Muere");
+            ShopManager.main.IncreaseCurrency(worth);
         }
         
     }

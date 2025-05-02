@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1045074745672909817, guid: fc2ecaa356520c6478b6fd42e1dc609a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1718105287227799152, guid: fc2ecaa356520c6478b6fd42e1dc609a, type: 3}
       propertyPath: m_Name
       value: B_Largue Variant

@@ -45,12 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towers:
-  - name: Basic Turret
+  - name: SpeedTurret
     cost: 100
-    turretPrefab: {fileID: 2218905292016695871, guid: c23e8ce458acb1f4d8878528cc32394b, type: 3}
-  - name: Heavy Turret
+    turretPrefab: {fileID: 2582525614428923739, guid: abe9ed804ab9f1647afc64a72666f93e, type: 3}
+  - name: LongTurret
     cost: 500
     turretPrefab: {fileID: 7565819242163431569, guid: 6e07a24ba4f45e441822abafdcac6ec4, type: 3}
+  - name: MissileTorret
+    cost: 500
+    turretPrefab: {fileID: 2218905292016695871, guid: c23e8ce458acb1f4d8878528cc32394b, type: 3}
   placeTurret:
     serializedVersion: 2
     m_Bits: 256

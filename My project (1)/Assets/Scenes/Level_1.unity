@@ -1034,34 +1034,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
-    - target: {fileID: 6806214843592598547, guid: 60a2829ad6be3f04c8a5f06dda2c91af, type: 3}
-      propertyPath: towers.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806214843592598547, guid: 60a2829ad6be3f04c8a5f06dda2c91af, type: 3}
-      propertyPath: towers.Array.data[0].name
-      value: SpeedTurret
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806214843592598547, guid: 60a2829ad6be3f04c8a5f06dda2c91af, type: 3}
-      propertyPath: towers.Array.data[1].name
-      value: LongTurret
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806214843592598547, guid: 60a2829ad6be3f04c8a5f06dda2c91af, type: 3}
-      propertyPath: towers.Array.data[2].cost
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806214843592598547, guid: 60a2829ad6be3f04c8a5f06dda2c91af, type: 3}
-      propertyPath: towers.Array.data[2].name
-      value: MissileTorret
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806214843592598547, guid: 60a2829ad6be3f04c8a5f06dda2c91af, type: 3}
-      propertyPath: towers.Array.data[0].turretPrefab
-      value: 
-      objectReference: {fileID: 2582525614428923739, guid: abe9ed804ab9f1647afc64a72666f93e, type: 3}
-    - target: {fileID: 6806214843592598547, guid: 60a2829ad6be3f04c8a5f06dda2c91af, type: 3}
-      propertyPath: towers.Array.data[2].turretPrefab
-      value: 
-      objectReference: {fileID: 2218905292016695871, guid: c23e8ce458acb1f4d8878528cc32394b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1118,18 +1090,6 @@ PrefabInstance:
     - target: {fileID: 2369373060177868283, guid: 956a4031829783d41a9521838b56dfe1, type: 3}
       propertyPath: m_Name
       value: Map
-      objectReference: {fileID: 0}
-    - target: {fileID: 3743153206601677059, guid: 956a4031829783d41a9521838b56dfe1, type: 3}
-      propertyPath: m_ChunkCullingBounds.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3743153206601677059, guid: 956a4031829783d41a9521838b56dfe1, type: 3}
-      propertyPath: m_ChunkCullingBounds.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3743153206601677059, guid: 956a4031829783d41a9521838b56dfe1, type: 3}
-      propertyPath: m_DetectChunkCullingBounds
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9188671002260752901, guid: 956a4031829783d41a9521838b56dfe1, type: 3}
       propertyPath: Shop

@@ -38,7 +38,11 @@ public class Movement : MonoBehaviour
     {  
         if (isShopOpen==false)
         PlayerInput();
-        
+        if(moved.x!=0 ||moved.y!=0)
+        {
+            myAnimator.SetFloat("LastX",moved.x);
+            myAnimator.SetFloat("LastY", moved.y);
+        }
     }
 
     private void FixedUpdate()
@@ -56,14 +60,15 @@ public class Movement : MonoBehaviour
         {
         moved = playerController.MovemenT.Move.ReadValue<Vector2>();
         myAnimator.SetFloat("MoveX", moved.x);
-        myAnimator.SetFloat("MoveY", moved.y);
+        myAnimator.SetFloat("MoveY",moved.y);
         playerController.Combat.Attack.started += _ => Attacks();
         }
     }        
 
     void Move()
     {
-        rb.MovePosition(rb.position + moved * (moveSpeed * Time.fixedDeltaTime));   
+        rb.MovePosition(rb.position + moved * (moveSpeed * Time.fixedDeltaTime)); 
+        
     }
     void Attacks()
     {

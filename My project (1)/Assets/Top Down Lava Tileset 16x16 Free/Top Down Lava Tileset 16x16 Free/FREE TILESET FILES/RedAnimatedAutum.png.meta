@@ -1,0 +1,623 @@
+fileFormatVersion: 2
+guid: 4076711b4a5c3f544914b3036419268d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6048056119823509452
+    second: RedAnimatedAutum_0
+  - first:
+      213: -2865184172411564362
+    second: RedAnimatedAutum_1
+  - first:
+      213: -1014022236961939923
+    second: RedAnimatedAutum_2
+  - first:
+      213: -8935751875764672507
+    second: RedAnimatedAutum_3
+  - first:
+      213: -6856844404760934012
+    second: RedAnimatedAutum_4
+  - first:
+      213: -4564671094377599304
+    second: RedAnimatedAutum_5
+  - first:
+      213: -8550292846193568695
+    second: RedAnimatedAutum_6
+  - first:
+      213: -5807433668270059057
+    second: RedAnimatedAutum_7
+  - first:
+      213: 8749146704822753152
+    second: RedAnimatedAutum_8
+  - first:
+      213: 514025257951947123
+    second: RedAnimatedAutum_9
+  - first:
+      213: 6319980409270654056
+    second: RedAnimatedAutum_10
+  - first:
+      213: 8084317407569989586
+    second: RedAnimatedAutum_11
+  - first:
+      213: -8280147756311861026
+    second: RedAnimatedAutum_12
+  - first:
+      213: 3499392958701802835
+    second: RedAnimatedAutum_13
+  - first:
+      213: 8637336591220093100
+    second: RedAnimatedAutum_14
+  - first:
+      213: -8227284333033147052
+    second: RedAnimatedAutum_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 10
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RedAnimatedAutum_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 6, y: -22}
+        - {x: -5, y: -22}
+        - {x: -5, y: -30}
+        - {x: 6, y: -30}
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc725bb3ff20fe350800000000000000
+      internalID: 6048056119823509452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedAnimatedAutum_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 6, y: -22}
+        - {x: -5, y: -22}
+        - {x: -5, y: -30}
+        - {x: 6, y: -30}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6be4653fc22dc38d0800000000000000
+      internalID: -2865184172411564362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedAnimatedAutum_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 6, y: -22}
+        - {x: -5, y: -22}
+        - {x: -5, y: -30}
+        - {x: 6, y: -30}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2e5983e5287de1f0800000000000000
+      internalID: -1014022236961939923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedAnimatedAutum_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 6, y: -22}
+        - {x: -5, y: -22}
+        - {x: -5, y: -30}
+        - {x: 6, y: -30}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 508240c3305ddf380800000000000000
+      internalID: -8935751875764672507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedAnimatedAutum_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 6, y: -22}
+        - {x: -5, y: -22}
+        - {x: -5, y: -30}
+        - {x: 6, y: -30}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 489891ec75897d0a0800000000000000
+      internalID: -6856844404760934012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedAnimatedAutum_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 6, y: -22}
+        - {x: -5, y: -22}
+        - {x: -5, y: -30}
+        - {x: 6, y: -30}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8be212703d707a0c0800000000000000
+      internalID: -4564671094377599304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedAnimatedAutum_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 6, y: -22}
+        - {x: -5, y: -22}
+        - {x: -5, y: -30}
+        - {x: 6, y: -30}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 944911135f1475980800000000000000
+      internalID: -8550292846193568695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedAnimatedAutum_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 6, y: -22}
+        - {x: -5, y: -22}
+        - {x: -5, y: -30}
+        - {x: 6, y: -30}
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc19e1a09d9d76fa0800000000000000
+      internalID: -5807433668270059057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedAnimatedAutum_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 6, y: -22}
+        - {x: -5, y: -22}
+        - {x: -5, y: -30}
+        - {x: 6, y: -30}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0875db4b2963b6970800000000000000
+      internalID: 8749146704822753152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedAnimatedAutum_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 6, y: -22}
+        - {x: -5, y: -22}
+        - {x: -5, y: -30}
+        - {x: 6, y: -30}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 379edc9af3f222700800000000000000
+      internalID: 514025257951947123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedAnimatedAutum_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 6, y: -22}
+        - {x: -5, y: -22}
+        - {x: -5, y: -30}
+        - {x: 6, y: -30}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 864510292b415b750800000000000000
+      internalID: 6319980409270654056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedAnimatedAutum_11
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 6, y: -22}
+        - {x: -5, y: -22}
+        - {x: -5, y: -30}
+        - {x: 6, y: -30}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2df47b189d3413070800000000000000
+      internalID: 8084317407569989586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedAnimatedAutum_12
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 6, y: -22}
+        - {x: -5, y: -22}
+        - {x: -5, y: -30}
+        - {x: 6, y: -30}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed8a8495c71071d80800000000000000
+      internalID: -8280147756311861026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedAnimatedAutum_13
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 6, y: -22}
+        - {x: -5, y: -22}
+        - {x: -5, y: -30}
+        - {x: 6, y: -30}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3559ce8fa57509030800000000000000
+      internalID: 3499392958701802835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedAnimatedAutum_14
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 6, y: -22}
+        - {x: -5, y: -22}
+        - {x: -5, y: -30}
+        - {x: 6, y: -30}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca0382dfddbfdd770800000000000000
+      internalID: 8637336591220093100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedAnimatedAutum_15
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 6, y: -22}
+        - {x: -5, y: -22}
+        - {x: -5, y: -30}
+        - {x: 6, y: -30}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4553c673d70d2dd80800000000000000
+      internalID: -8227284333033147052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b40798ef48d863b46a20a9c6ad7daf26
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      RedAnimatedAutum_0: 6048056119823509452
+      RedAnimatedAutum_1: -2865184172411564362
+      RedAnimatedAutum_10: 6319980409270654056
+      RedAnimatedAutum_11: 8084317407569989586
+      RedAnimatedAutum_12: -8280147756311861026
+      RedAnimatedAutum_13: 3499392958701802835
+      RedAnimatedAutum_14: 8637336591220093100
+      RedAnimatedAutum_15: -8227284333033147052
+      RedAnimatedAutum_2: -1014022236961939923
+      RedAnimatedAutum_3: -8935751875764672507
+      RedAnimatedAutum_4: -6856844404760934012
+      RedAnimatedAutum_5: -4564671094377599304
+      RedAnimatedAutum_6: -8550292846193568695
+      RedAnimatedAutum_7: -5807433668270059057
+      RedAnimatedAutum_8: 8749146704822753152
+      RedAnimatedAutum_9: 514025257951947123
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

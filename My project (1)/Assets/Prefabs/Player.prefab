@@ -407,7 +407,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!95 &1534937354774270827
 Animator:
   serializedVersion: 7
@@ -444,6 +444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   shop: {fileID: 0}
+  MoveDir: {x: 0, y: 0}
   isAttack: 0
 --- !u!114 &3996645419358163822
 MonoBehaviour:
