@@ -225,7 +225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376669897987737906, guid: c2b10e270bba6f04e986d595d3550e56, type: 3}
       propertyPath: attackDamage
-      value: 50
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7063592945626848021, guid: c2b10e270bba6f04e986d595d3550e56, type: 3}
       propertyPath: m_LocalPosition.x
@@ -329,6 +329,7 @@ MonoBehaviour:
   spawnInterval: 1
   spawnPoints:
   - {fileID: 850925289}
+  spawnAmount: 5
 --- !u!1 &906465369
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,6 +543,14 @@ PrefabInstance:
     - target: {fileID: 5562572005338696824, guid: eb23e7266363a8d42ba09b90e281cd5c, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5562572005338696824, guid: eb23e7266363a8d42ba09b90e281cd5c, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645734593823174158, guid: eb23e7266363a8d42ba09b90e281cd5c, type: 3}
+      propertyPath: health
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7645734593823174158, guid: eb23e7266363a8d42ba09b90e281cd5c, type: 3}
       propertyPath: target
