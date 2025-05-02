@@ -5,6 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject Settings;
     public GameObject Credits;
+    public GameObject HTP;
     public void OnEnterLevel()
     {
         SceneManager.LoadScene("Level_1");
@@ -24,5 +25,11 @@ public class MainMenu : MonoBehaviour
     public void EnterCredits()
     {
         Credits.SetActive(true);
+        HTP.SetActive(false);
+    }
+    public void EnterHTP()
+    {
+        HTP.SetActive(true);
+        Credits.SetActive(false);
     }
 }

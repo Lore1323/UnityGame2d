@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67157e65f0d320e40959af0a35d8f7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDamage: 0
 --- !u!70 &626358852166450372
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -442,6 +443,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
+  shop: {fileID: 0}
+  isAttack: 0
 --- !u!114 &3996645419358163822
 MonoBehaviour:
   m_ObjectHideFlags: 0

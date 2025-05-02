@@ -14,7 +14,7 @@ public class Turret : MonoBehaviour
     [Header ("Attribute")]
     [SerializeField] private float Range = 1f;
     [SerializeField] private float Cadence = 1f;
-
+    
     private Transform target;
     private float timeUntilFire;
 
