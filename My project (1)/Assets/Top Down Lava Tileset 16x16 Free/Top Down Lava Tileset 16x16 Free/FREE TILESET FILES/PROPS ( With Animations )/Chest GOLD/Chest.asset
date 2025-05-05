@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
   m_Name: Chest
   m_EditorClassIdentifier: 
-  m_AnimatedSprites: []
+  m_AnimatedSprites:
+  - {fileID: 7469209724331302301, guid: 5d04b7b4ad6c4cc41906c38a722c7e58, type: 3}
+  - {fileID: 8776121340505679748, guid: 5706ee22b9a2a3a4fb21c1dc3ea9b60b, type: 3}
+  - {fileID: -3793673844912853374, guid: ca69c6a9f2780994597721e1a0cec0c1, type: 3}
+  - {fileID: -3717344692834178745, guid: 0a69f1ab98a5b494da606f7f04292823, type: 3}
+  - {fileID: 1994829788286493335, guid: 4e9aa846e2ac3cf448732c561f78b901, type: 3}
+  - {fileID: 8554177400125818860, guid: f5bf3486917008a42b570b08ce420a20, type: 3}
+  - {fileID: -8206628288042591056, guid: ba3ca8e22c0f13748b2f6535d5be7ed3, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0

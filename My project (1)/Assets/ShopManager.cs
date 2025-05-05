@@ -16,6 +16,7 @@ public class ShopManager : MonoBehaviour
     public void IncreaseCurrency(int ammount)
     {
         currency += ammount;
+        PlaceTurret.canPurchaseThis = true;
     }
     public bool SpendCurrency(int ammount)
     {
@@ -27,6 +28,7 @@ public class ShopManager : MonoBehaviour
         }
         else {
             Debug.Log("no money");
+            PlaceTurret.canPurchaseThis=false;
             return false;
         }
     }

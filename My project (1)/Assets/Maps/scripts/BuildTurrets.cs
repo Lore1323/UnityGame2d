@@ -21,9 +21,8 @@ public class BuildTurrets : MonoBehaviour
         return towers[selectedTurret];
     }
     public void SetSelectecTurret(int _selectedTurret)
-    { 
-            selectedTurret = _selectedTurret;    
-            Debug.Log("torreta Seleccionada");   
+    {
+            selectedTurret = _selectedTurret;
+            Debug.Log("torreta Seleccionada");
     }
-
 }

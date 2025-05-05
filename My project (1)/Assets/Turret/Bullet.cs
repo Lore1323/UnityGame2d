@@ -24,21 +24,20 @@ public class Bullet : MonoBehaviour
 
         rb.linearVelocity =direction*bulletSpeed;
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.CompareTag("Enemy"))
+        if (collision != null)
         {
-            Debug.Log("ENTRO EL ENEMIGO");
-            Enemy enemigo = other.GetComponent<Enemy>();
+            Debug.Log("golpeo al enemigo");
+            Enemy enemigo = collision.gameObject.GetComponent<Enemy>();
             
+
             if (enemigo != null)
             {
                 enemigo.DealtDamage += DamagePerBullet;
                 enemigo.TakeDamage();
                 Destroy(gameObject);
             }
-            
         }
-        
     }
 }

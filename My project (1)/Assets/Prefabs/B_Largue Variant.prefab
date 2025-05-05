@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1045074745672909817, guid: fc2ecaa356520c6478b6fd42e1dc609a, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1718105287227799152, guid: fc2ecaa356520c6478b6fd42e1dc609a, type: 3}
       propertyPath: m_Name
@@ -79,6 +79,10 @@ PrefabInstance:
     - target: {fileID: 2385525704774043246, guid: fc2ecaa356520c6478b6fd42e1dc609a, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862118414994583250, guid: fc2ecaa356520c6478b6fd42e1dc609a, type: 3}
+      propertyPath: m_Simulated
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7177808089345000728, guid: fc2ecaa356520c6478b6fd42e1dc609a, type: 3}
       propertyPath: m_Sprite

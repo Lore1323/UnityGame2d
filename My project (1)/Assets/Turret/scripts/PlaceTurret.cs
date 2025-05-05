@@ -8,6 +8,7 @@ public class PlaceTurret : MonoBehaviour
     [SerializeField] private TilemapCollider2D tmC;
     [SerializeField] private LayerMask placeTurret;
     public GameObject Shop;
+    public static bool canPurchaseThis = true;
 
     private GameObject turret;
     
@@ -16,30 +17,38 @@ public class PlaceTurret : MonoBehaviour
 
     void Update()
     {
-        if (UIShop.TurretSelected==true)
+        if (UIShop.modeShop == true)
         {
-            if (Input.GetMouseButtonDown(0)) // Click izquierdo
+            if (UIShop.TurretSelected == true)
             {
-                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-                // Hacer un Raycast en la posición del mouse para detectar el Tilemap
-                RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero, Mathf.Infinity, placeTurret);
-
-                if (hit.collider != null) // Si golpea algo en la capa del Tilemap
+                if (Input.GetMouseButtonDown(0)) // Click izquierdo
                 {
-                    ShopTower turretToBuild = BuildTurrets.main.GetSelectedTurret();
-                    turret = Instantiate(turretToBuild.turretPrefab, hit.point, Quaternion.identity);
-                    UIShop.TurretSelected = false;
-                    Shop.SetActive(true);
+                    Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+                    // Hacer un Raycast en la posición del mouse para detectar el Tilemap
+                    RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero, Mathf.Infinity, placeTurret);
+
+                    if (hit.collider != null) // Si golpea algo en la capa del Tilemap
+                    {
+                        ShopTower turretToBuild = BuildTurrets.main.GetSelectedTurret();
+                        if (turretToBuild.cost > ShopManager.main.currency)
+                        {
+                            Debug.Log("compra");
+                            return;
+                        }
+                        ShopManager.main.SpendCurrency(turretToBuild.cost);
+                        turret = Instantiate(turretToBuild.turretPrefab, hit.point, Quaternion.identity);
+                        UIShop.TurretSelected = false;
+                        Shop.SetActive(true);
+                    }
+                    else
+                    {
+                        UIShop.TurretSelected = false;
+                        Shop.SetActive(true);
+                        Movement.modeAttack = true;
+                    }
                 }
-                else
-                {
-                    UIShop.TurretSelected = false;
-                    Shop.SetActive(true);
-                    Movement.modeAttack = true;
-                }
-            }  
+            }
         }
-        
     }
 }

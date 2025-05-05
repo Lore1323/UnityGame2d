@@ -9,6 +9,7 @@ public class UIShop : MonoBehaviour
     public GameObject Shop;
     public PlayerController Controller;    
     public static bool TurretSelected=false;
+    public static bool modeShop=false;
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class UIShop : MonoBehaviour
 
     public void OpenShop()
     {
+        modeShop = true;
         Movement.modeAttack = false;
         Movement.isShopOpen = true;
         bool isActive = Shop.activeSelf;
@@ -36,6 +38,7 @@ public class UIShop : MonoBehaviour
         Time.timeScale = isActive ? 1f : 0f;
         if (isActive)
         {
+            modeShop=false;
             Movement.isShopOpen = false;
             Movement.modeAttack=true;
         }
