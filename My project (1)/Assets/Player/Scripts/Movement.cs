@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private Transform SpawnPoint;
 
     public PlayerController playerController;
     private Vector2 moved;
@@ -19,6 +21,7 @@ public class Movement : MonoBehaviour
     public bool isAttack=false;
     public static bool modeAttack = true;
 
+    readonly int Fire_hash = Animator.StringToHash("Fire");
 
 
     private void Awake()
@@ -29,61 +32,54 @@ public class Movement : MonoBehaviour
         mySpriteRenderer = GetComponent<SpriteRenderer>();  
     }
     
-    private void OnEnable()
-    {
+    private void OnEnable(){
         playerController.Enable();
     }
 
-    private void Update()
-    {  
+    private void Update(){  
         if (isShopOpen==false)
-        PlayerInput();
-        if(moved.x!=0 ||moved.y!=0)
-        {
+            PlayerInput();
+        if(moved.x!=0 ||moved.y!=0){
             myAnimator.SetFloat("LastX",moved.x);
             myAnimator.SetFloat("LastY", moved.y);
         }
     }
 
-    private void FixedUpdate()
-    {
-        if (isAttack == false)
-        {
+    private void FixedUpdate(){
+        if (isAttack == false){
             Move();
-        }  
-        
+        }     
     }
 
-    private void PlayerInput()
-    {
-        if (modeAttack == true)
-        {
-        moved = playerController.MovemenT.Move.ReadValue<Vector2>();
-        myAnimator.SetFloat("MoveX", moved.x);
-        myAnimator.SetFloat("MoveY",moved.y);
-        playerController.Combat.Attack.started += _ => Attacks();
+    private void PlayerInput(){
+        if (modeAttack == true){
+            moved = playerController.MovemenT.Move.ReadValue<Vector2>();
+            myAnimator.SetFloat("MoveX", moved.x);
+            myAnimator.SetFloat("MoveY",moved.y);
+            playerController.Combat.Attack.started += _ => Attacks();
         }
     }        
 
-    void Move()
-    {
+    void Move(){
         rb.MovePosition(rb.position + moved * (moveSpeed * Time.fixedDeltaTime)); 
         
     }
-    void Attacks()
-    {
-        if (modeAttack == true)
-        {
-            if (isShopOpen == false)
-            {
+
+    void Attacks(){
+        if (modeAttack == true){
+            if (isShopOpen == false){
                 myAnimator.SetBool("IsAttacking", true);
                 isAttack = true;
+                Shoot();
             }
         }
     }
-    private void EndAttack()
-    {
+    private void EndAttack(){
         myAnimator.SetBool("IsAttacking", false);
         isAttack= false;
-    }   
+    }
+    private void Shoot()
+    {
+        
+    }
 }
