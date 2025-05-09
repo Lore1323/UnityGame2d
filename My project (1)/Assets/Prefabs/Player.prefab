@@ -98,7 +98,6 @@ GameObject:
   - component: {fileID: 5510463849024566947}
   - component: {fileID: 6073754826767599746}
   - component: {fileID: 2376669897987737906}
-  - component: {fileID: 626358852166450372}
   m_Layer: 0
   m_Name: sword
   m_TagString: Weapon
@@ -115,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 4581567571445092727}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.49149323, y: -0.67704296, z: 0}
+  m_LocalPosition: {x: 0.896, y: 0.022, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -189,43 +188,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 0
---- !u!70 &626358852166450372
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4581567571445092727}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 2
-  m_Offset: {x: -0.18665847, y: 1.2160779}
-  m_Size: {x: 0.44428283, y: 1.3933557}
-  m_Direction: 0
 --- !u!1 &5210176668174397937
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,7 +307,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.3731794, y: -0.12099019, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5510463849024566947}
@@ -397,7 +359,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 1f2b808deed244e18d31ba3c25ad903b, type: 3}
+  m_Sprite: {fileID: 3882069168391583047, guid: 32835ffa1e0fe6846820ae0dfafb2764, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -443,8 +405,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
+  bullet: {fileID: 0}
+  SpawnPoint: {fileID: 5510463849024566947}
   shop: {fileID: 0}
-  MoveDir: {x: 0, y: 0}
   isAttack: 0
 --- !u!114 &3996645419358163822
 MonoBehaviour:
@@ -520,6 +483,6 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.88810074}
-  m_Size: {x: 1.0890074, y: 0.597354}
+  m_Offset: {x: -9.794405e-10, y: -1.0082164}
+  m_Size: {x: 1.0890075, y: 0.83758557}
   m_Direction: 1

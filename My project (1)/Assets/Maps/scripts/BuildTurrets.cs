@@ -4,7 +4,7 @@ using UnityEngine;
 public class BuildTurrets : MonoBehaviour
 {
     public static BuildTurrets main;
-
+    public static bool SelectTurret;
     [Header("References")]
     [SerializeField] private ShopTower[] towers;
 
@@ -18,11 +18,15 @@ public class BuildTurrets : MonoBehaviour
     
     public ShopTower GetSelectedTurret()
     {
+        SelectTurret = true;
         return towers[selectedTurret];
     }
     public void SetSelectecTurret(int _selectedTurret)
     {
+        if (SelectTurret == true)
+        {
             selectedTurret = _selectedTurret;
             Debug.Log("torreta Seleccionada");
+        }
     }
 }

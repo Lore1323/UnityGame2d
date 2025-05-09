@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9173941688717483211}
   - component: {fileID: 1923032021682378879}
   - component: {fileID: 2063384901056531385}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MissileTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,8 +144,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.3875333
+  m_Offset: {x: 0, y: -0.09636164}
+  m_Radius: 2.3010004
 --- !u!1 &8351353948520352645
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2327002683296009607}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

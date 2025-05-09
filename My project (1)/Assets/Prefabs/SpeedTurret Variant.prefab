@@ -16,6 +16,18 @@ PrefabInstance:
       propertyPath: Cadence
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1923032021682378879, guid: c23e8ce458acb1f4d8878528cc32394b, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 1718105287227799152, guid: fc2ecaa356520c6478b6fd42e1dc609a, type: 3}
+    - target: {fileID: 2063384901056531385, guid: c23e8ce458acb1f4d8878528cc32394b, type: 3}
+      propertyPath: m_Radius
+      value: 1.4741379
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063384901056531385, guid: c23e8ce458acb1f4d8878528cc32394b, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.118343234
+      objectReference: {fileID: 0}
     - target: {fileID: 2218905292016695871, guid: c23e8ce458acb1f4d8878528cc32394b, type: 3}
       propertyPath: m_Name
       value: SpeedTurret Variant

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8824432686129450426}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 2549513619150927421}
   - component: {fileID: 8888874424378041908}
   - component: {fileID: 3990847737816908953}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LongTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}

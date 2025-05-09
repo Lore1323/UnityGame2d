@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.UI;
 
+
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 1f;
@@ -29,34 +30,49 @@ public class Movement : MonoBehaviour
         playerController = new PlayerController();
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
-        mySpriteRenderer = GetComponent<SpriteRenderer>();  
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+        playerController.Combat.Attack.started += _ => Attacks();
     }
     
     private void OnEnable(){
         playerController.Enable();
     }
 
-    private void Update(){  
-        if (isShopOpen==false)
+    private void Update()
+    {
+        if (isShopOpen == false)
             PlayerInput();
-        if(moved.x!=0 ||moved.y!=0){
-            myAnimator.SetFloat("LastX",moved.x);
+        if (moved.x != 0 || moved.y != 0)
+        {
+            myAnimator.SetFloat("LastX", moved.x);
             myAnimator.SetFloat("LastY", moved.y);
         }
     }
 
+
     private void FixedUpdate(){
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (mouseWorldPosition.x < transform.position.x)
+        {
+            mySpriteRenderer.flipX = false;
+            Debug.Log("izq");
+        }
+        else
+        {
+            mySpriteRenderer.flipX = true;
+            Debug.Log("der");
+        }
         if (isAttack == false){
             Move();
-        }     
-    }
+        }
+}
 
     private void PlayerInput(){
         if (modeAttack == true){
             moved = playerController.MovemenT.Move.ReadValue<Vector2>();
             myAnimator.SetFloat("MoveX", moved.x);
-            myAnimator.SetFloat("MoveY",moved.y);
-            playerController.Combat.Attack.started += _ => Attacks();
+            myAnimator.SetFloat("MoveY",moved.y); 
         }
     }        
 
