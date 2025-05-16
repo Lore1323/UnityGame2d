@@ -92,9 +92,9 @@ public class Movement : MonoBehaviour
     {
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mouseWorldPosition - SpawnPoint.position).normalized;
-
         GameObject newBullet = Instantiate(bullet, SpawnPoint.position, Quaternion.identity);
         newBullet.GetComponent<Projectile>().SetDirection(direction);
+
     }
     private void AdjustPlayerFacingDirection()
     {
