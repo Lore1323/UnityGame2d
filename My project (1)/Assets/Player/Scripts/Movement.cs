@@ -21,50 +21,44 @@ public class Movement : MonoBehaviour
     public static bool isShopOpen =false;
     public bool isAttack=false;
     public static bool modeAttack = true;
+    private Vector3 originalScale;
 
     readonly int Fire_hash = Animator.StringToHash("Fire");
 
 
     private void Awake()
     {
+        originalScale = transform.localScale;
         playerController = new PlayerController();
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
-        playerController.Combat.Attack.started += _ => Attacks();
+        
     }
     
     private void OnEnable(){
         playerController.Enable();
+        playerController.Combat.Attack.started += _ => Attacks();
+    }
+    private void OnDisable()
+    {
+        playerController.Disable();
+        playerController.Combat.Attack.started -= _ => Attacks();
     }
 
     private void Update()
     {
         if (isShopOpen == false)
-            PlayerInput();
-        if (moved.x != 0 || moved.y != 0)
         {
-            myAnimator.SetFloat("LastX", moved.x);
-            myAnimator.SetFloat("LastY", moved.y);
+            PlayerInput();
+            AdjustPlayerFacingDirection();
         }
     }
 
 
-    private void FixedUpdate(){
-        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        if (mouseWorldPosition.x < transform.position.x)
-        {
-            mySpriteRenderer.flipX = false;
-            Debug.Log("izq");
-        }
-        else
-        {
-            mySpriteRenderer.flipX = true;
-            Debug.Log("der");
-        }
+    private void FixedUpdate(){   
         if (isAttack == false){
-            Move();
+            Move();    
         }
 }
 
@@ -72,16 +66,16 @@ public class Movement : MonoBehaviour
         if (modeAttack == true){
             moved = playerController.MovemenT.Move.ReadValue<Vector2>();
             myAnimator.SetFloat("MoveX", moved.x);
-            myAnimator.SetFloat("MoveY",moved.y); 
+            myAnimator.SetFloat("MoveY",moved.y);
         }
     }        
 
     void Move(){
-        rb.MovePosition(rb.position + moved * (moveSpeed * Time.fixedDeltaTime)); 
-        
+        rb.MovePosition(rb.position + moved * (moveSpeed * Time.fixedDeltaTime));     
     }
 
     void Attacks(){
+        Debug.Log("Attack ejecutado");
         if (modeAttack == true){
             if (isShopOpen == false){
                 myAnimator.SetBool("IsAttacking", true);
@@ -96,6 +90,23 @@ public class Movement : MonoBehaviour
     }
     private void Shoot()
     {
-        
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = (mouseWorldPosition - SpawnPoint.position).normalized;
+
+        GameObject newBullet = Instantiate(bullet, SpawnPoint.position, Quaternion.identity);
+        newBullet.GetComponent<Projectile>().SetDirection(direction);
+    }
+    private void AdjustPlayerFacingDirection()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
+
+        if (mousePos.x < playerScreenPoint.x && !mySpriteRenderer.flipX){
+            transform.localScale = new Vector3(-originalScale.x, originalScale.y, originalScale.z);
+        }
+        else
+        {
+            transform.localScale = new Vector3(originalScale.x, originalScale.y, originalScale.z);
+        }
     }
 }
