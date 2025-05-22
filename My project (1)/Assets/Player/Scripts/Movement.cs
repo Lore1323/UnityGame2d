@@ -8,21 +8,23 @@ using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
+    [Header("Attribute")]
     [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] public bool isAttack = false;
+    [Header("References")]
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform SpawnPoint;
+    [SerializeField] public GameObject shop;
+    
 
     public PlayerController playerController;
     private Vector2 moved;
     private Rigidbody2D rb;
     private Animator myAnimator;
-    private SpriteRenderer mySpriteRenderer;
-    public GameObject shop;
+    private SpriteRenderer mySpriteRenderer;    
     public static bool isShopOpen =false;
-    public bool isAttack=false;
     public static bool modeAttack = true;
     private Vector3 originalScale;
-
     readonly int Fire_hash = Animator.StringToHash("Fire");
 
 

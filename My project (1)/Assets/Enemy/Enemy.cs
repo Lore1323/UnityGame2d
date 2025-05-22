@@ -2,80 +2,106 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.Rendering;
+using UnityEditor.Rendering.Analytics;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Attribute")]
+    [SerializeField] public int health;
     [SerializeField] private int damage;
-    [SerializeField] private int health;
     [SerializeField] private int worth;
-    public int DealtDamage;
-    public Transform target;
-    public float speed = 5f;
+    [SerializeField] private float detectPlayer;
+    [SerializeField] private float attackRange;
+    [SerializeField] public float speed = 5f;
+    [SerializeField] public int DealtDamage;
+    [Header("References")]
+    [SerializeField] public Transform playerTarget;
+    [SerializeField] public Transform target;
+    
     private Transform currentTarget;
     private float distance;
-    public Transform playerTarget;
-    private float detectPlayer;
-    
-    
+    private Animator myAnimator;
+    private SpriteRenderer mySpriteRenderer;
+
+    private void Awake()
+    {
+        myAnimator = GetComponent<Animator>();
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+    }
     private void OnDrawGizmosSelected()
     {
+        //Rango de Deteccion del player
         Handles.color = Color.cyan;
-        Handles.DrawWireDisc(transform.position, transform.forward, detectPlayer );
+        Handles.DrawWireDisc(transform.position, transform.forward, detectPlayer);
+        //rango de Ataque
+        Handles.color = Color.red;
+        Handles.DrawWireDisc(transform.position, transform.forward, attackRange);
     }
-    
+
     void Start()
     {
+        //seteo del objetivo a seguir
         currentTarget = target;
     }
 
     private void Update()
     {
+        FollowObject();
+        AttackObjective();
+        myAnimator.SetInteger("Life", health);    
+    }
+    private void FollowObject()
+    {
         if (target != null)
         {
+            SearchPlayer();
             distance = Vector2.Distance(transform.position, currentTarget.transform.position);
             Vector2 direction = currentTarget.transform.position - transform.position;
             direction.Normalize();
             transform.position = Vector2.MoveTowards(this.transform.position, currentTarget.transform.position, speed * Time.deltaTime);
         }
-        
     }
-    
-    
-    
-    private void OnTriggerEnter2D(Collider2D other)
+    private void SearchPlayer()
     {
-
-        if (other.CompareTag("Player"))
+        if (CheckPlayerIsInRange())
         {
             currentTarget = playerTarget;
         }
-        
+        else
+            currentTarget = target;
+    }
+    private bool CheckPlayerIsInRange()
+    {
+        return Vector2.Distance(playerTarget.position, transform.position) <= detectPlayer;
+    }
+    private void AttackObjective()
+    {
+        if (IsInAttackRange()) 
+        {
+            HealthSystem health= currentTarget.GetComponent<HealthSystem>();
+            myAnimator.SetBool("IsAttacking", true);
+            health.damage+=damage;
+            health.TakeDamage();
+        }
+        else
+            myAnimator.SetBool("IsAttacking", false);
     }
 
-
-    private void OnTriggerExit2D(Collider2D other)
+    private bool IsInAttackRange()
     {
-        if (other.CompareTag("Player"))
-        {
-            currentTarget = target;
-        }
+        return Vector2.Distance(currentTarget.position, transform.position) <= attackRange;
     }
 
     public void TakeDamage()
     {
         health -= DealtDamage;
-
         if (health <= 0)
         {
-            Die();
+            health = Mathf.Clamp(health, 0, health);
             Debug.Log("Muere");
             ShopManager.main.IncreaseCurrency(worth);
+            ObjectPoolManager.ReturnObjectToPool(this.gameObject);
         }
-        
-    }
-
-    void Die()
-    {
-        ObjectPoolManager.ReturnObjectToPool(this.gameObject);
     }
 }
