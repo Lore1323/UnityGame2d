@@ -21,13 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -2025737514376895230, guid: 88708f4c5310759408681e9095e08c86, type: 3}
+      value: {fileID: -5624424174851411680, guid: e59d001a76e015948b62931eb67b173b, type: 3}
     - time: 0.25
-      value: {fileID: -7187367679157950786, guid: 88708f4c5310759408681e9095e08c86, type: 3}
+      value: {fileID: -6672816784110111264, guid: e59d001a76e015948b62931eb67b173b, type: 3}
     - time: 0.5
-      value: {fileID: 5682069308591975560, guid: 88708f4c5310759408681e9095e08c86, type: 3}
+      value: {fileID: 821090365418933121, guid: e59d001a76e015948b62931eb67b173b, type: 3}
     - time: 0.75
-      value: {fileID: 6353429565118984836, guid: 88708f4c5310759408681e9095e08c86, type: 3}
+      value: {fileID: 7957002853768092932, guid: e59d001a76e015948b62931eb67b173b, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,10 +50,10 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -2025737514376895230, guid: 88708f4c5310759408681e9095e08c86, type: 3}
-    - {fileID: -7187367679157950786, guid: 88708f4c5310759408681e9095e08c86, type: 3}
-    - {fileID: 5682069308591975560, guid: 88708f4c5310759408681e9095e08c86, type: 3}
-    - {fileID: 6353429565118984836, guid: 88708f4c5310759408681e9095e08c86, type: 3}
+    - {fileID: -5624424174851411680, guid: e59d001a76e015948b62931eb67b173b, type: 3}
+    - {fileID: -6672816784110111264, guid: e59d001a76e015948b62931eb67b173b, type: 3}
+    - {fileID: 821090365418933121, guid: e59d001a76e015948b62931eb67b173b, type: 3}
+    - {fileID: 7957002853768092932, guid: e59d001a76e015948b62931eb67b173b, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -78,4 +78,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.75
+    functionName: ResetAttackAnimation
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class HealthSystem : MonoBehaviour
     private int currentHealth;
     public int damage;
     private Animator animator;
+    public Slider slider;
 
     private void Awake()
     {
@@ -13,19 +15,23 @@ public class HealthSystem : MonoBehaviour
     }
     private void Start()
     {
-        currentHealth = maxHealth;
-        
+        currentHealth = maxHealth;    
+        slider.maxValue = currentHealth;
+        slider.value=maxHealth;
     }
     private void Update()
     {
+        damage = 0;
         animator.SetInteger("Life", maxHealth);
     }
     public void TakeDamage()
     {
         maxHealth=Mathf.Clamp(maxHealth, 0, maxHealth);
         maxHealth -= damage;
+        slider.value = maxHealth;
         maxHealth = Mathf.Clamp(maxHealth, 0, maxHealth);
     }
+    //esta funcion se llama al final de la animacion de muerte del player
     private void Death()
     {
         Debug.Log("Muerto");
