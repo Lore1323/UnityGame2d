@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
+        health = 100;
         myAnimator = GetComponent<Animator>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -55,6 +56,7 @@ public class Enemy : MonoBehaviour
     {
         if (target != null)
         {
+            myAnimator.SetBool("CanWalk", true);
             SearchPlayer();
             distance = Vector2.Distance(transform.position, currentTarget.transform.position);
             Vector2 direction = currentTarget.transform.position - transform.position;
@@ -81,6 +83,7 @@ public class Enemy : MonoBehaviour
         {
             HealthSystem health= currentTarget.GetComponent<HealthSystem>();
             myAnimator.SetBool("IsAttacking", true);
+            myAnimator.SetBool("CanWalk", false);
             health.damage+=damage;
             health.TakeDamage();
         }
@@ -101,7 +104,11 @@ public class Enemy : MonoBehaviour
             health = Mathf.Clamp(health, 0, health);
             Debug.Log("Muere");
             ShopManager.main.IncreaseCurrency(worth);
-            ObjectPoolManager.ReturnObjectToPool(this.gameObject);
+            
         }
+    }
+    public void ReturnPool()
+    {
+        ObjectPoolManager.ReturnObjectToPool(this.gameObject);
     }
 }

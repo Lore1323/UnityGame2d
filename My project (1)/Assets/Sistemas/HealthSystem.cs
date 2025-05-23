@@ -20,15 +20,12 @@ public class HealthSystem : MonoBehaviour
     {
         animator.SetInteger("Life", maxHealth);
     }
-
     public void TakeDamage()
     {
         maxHealth=Mathf.Clamp(maxHealth, 0, maxHealth);
         maxHealth -= damage;
-        Debug.Log(gameObject.name + " takes damage: " + damage);
         maxHealth = Mathf.Clamp(maxHealth, 0, maxHealth);
     }
-
     private void Death()
     {
         Debug.Log("Muerto");

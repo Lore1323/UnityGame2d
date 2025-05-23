@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1995657189614418039}
   - component: {fileID: 6806214843592598547}
+  - component: {fileID: 1970883347411614752}
+  - component: {fileID: 3895703412098903478}
+  - component: {fileID: 4052251783453152285}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -57,3 +60,43 @@ MonoBehaviour:
   placeTurret:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &1970883347411614752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6236930207541059444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 415edc41738aff547964cc83357bcb1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currency: 10
+--- !u!114 &3895703412098903478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6236930207541059444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5526543f2b9a4e446a84ae3ff1dc70b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currencyUI: {fileID: 0}
+--- !u!114 &4052251783453152285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6236930207541059444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e34082a05488d6549a2aacd834d904d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAmount: 0
+  waveNumber: 0
