@@ -27,10 +27,12 @@ public class Projectile : MonoBehaviour
             if (enemigo != null)
             {
                 enemigo.DealtDamage += DamagePerBullet;
-                enemigo.TakeDamage();    
+                enemigo.TakeDamage();
+                Destroy(this.gameObject);
             }
             else
-                ObjectPoolManager.ReturnObjectToPool(this.gameObject);
+            ObjectPoolManager.ReturnObjectToPool(this.gameObject);
+            
         }
     }
 }

@@ -8,21 +8,23 @@ using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
+    [Header("Attribute")]
     [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] public bool isAttack = false;
+    [Header("References")]
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform SpawnPoint;
+    [SerializeField] public GameObject shop;
+
 
     public PlayerController playerController;
     private Vector2 moved;
     private Rigidbody2D rb;
     private Animator myAnimator;
     private SpriteRenderer mySpriteRenderer;
-    public GameObject shop;
-    public static bool isShopOpen =false;
-    public bool isAttack=false;
+    public static bool isShopOpen = false;
     public static bool modeAttack = true;
     private Vector3 originalScale;
-
     readonly int Fire_hash = Animator.StringToHash("Fire");
 
 
@@ -33,10 +35,10 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
-        
+
     }
-    
-    private void OnEnable(){
+
+    private void OnEnable() {
         playerController.Enable();
         playerController.Combat.Attack.started += _ => Attacks();
     }
@@ -56,24 +58,24 @@ public class Movement : MonoBehaviour
     }
 
 
-    private void FixedUpdate(){   
-        if (isAttack == false){
-            Move();    
+    private void FixedUpdate() {
+        if (isAttack == false) {
+            Move();
         }
-}
-
-    private void PlayerInput(){
-        if (modeAttack == true){
+    }
+    //esta funcion recibe los input para mover al player y tambien se encarga de las animaciones
+    private void PlayerInput() {
+        if (modeAttack == true) {
             moved = playerController.MovemenT.Move.ReadValue<Vector2>();
             myAnimator.SetFloat("MoveX", moved.x);
-            myAnimator.SetFloat("MoveY",moved.y);
+            myAnimator.SetFloat("MoveY", moved.y);
         }
-    }        
-
-    void Move(){
-        rb.MovePosition(rb.position + moved * (moveSpeed * Time.fixedDeltaTime));     
     }
-
+    //esta funcion mueve el rigidbody2d del player
+    void Move() {
+        rb.MovePosition(rb.position + moved * (moveSpeed * Time.fixedDeltaTime));
+    }
+    //esta funcion se encarga del ataque 
     void Attacks(){
         Debug.Log("Attack ejecutado");
         if (modeAttack == true){
@@ -84,10 +86,12 @@ public class Movement : MonoBehaviour
             }
         }
     }
+    //esta funcion termina el ataque 
     private void EndAttack(){
         myAnimator.SetBool("IsAttacking", false);
         isAttack= false;
     }
+    //esta funcion se encarga de instaciar las balas donde se indique y con la direccion donde se haga click
     private void Shoot()
     {
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -96,6 +100,7 @@ public class Movement : MonoBehaviour
         newBullet.GetComponent<Projectile>().SetDirection(direction);
 
     }
+    //esta funcion se encarga de que el player siga con la mirada al mouse
     private void AdjustPlayerFacingDirection()
     {
         Vector3 mousePos = Input.mousePosition;
