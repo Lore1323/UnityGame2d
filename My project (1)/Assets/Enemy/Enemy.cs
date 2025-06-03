@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        actualHealth=health; 
+        actualHealth = health;
         myAnimator = GetComponent<Animator>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
     {
         FollowObject();
         AttackObjective();
-        myAnimator.SetInteger("Life", health);    
+        myAnimator.SetInteger("Life", actualHealth);    
     }
     //esta funcion hace que el enemigo siga al objetivo y setea un bool de las animaciones
     private void FollowObject()
@@ -114,21 +114,20 @@ public class Enemy : MonoBehaviour
         return Vector2.Distance(currentTarget.position, transform.position) <= attackRange;
     }
     //esta funcion hace que el enemigo pueda recibir daño
-    public void TakeDamage()
+    public void TakeDamage(int appliedDamage)
     {
-        actualHealth -= DealtDamage;
+        actualHealth -= appliedDamage;
+        actualHealth = Mathf.Clamp(actualHealth, 0, health);
         if (actualHealth <= 0)
         {
-            actualHealth = Mathf.Clamp(actualHealth, 0, health);
+            myAnimator.SetBool("IsDead", true);
             Debug.Log("Muere");
-            ShopManager.main.IncreaseCurrency(worth);
-            
+            ShopManager.main.IncreaseCurrency(worth);    
         }
     }
     //esta funcion hace que el enemigo vuelva al PoolManager
     public void ReturnPool()
-    {
-        
+    {    
         ObjectPoolManager.ReturnObjectToPool(this.gameObject);
     }
     public void CantAttackDeath()
@@ -139,11 +138,11 @@ public class Enemy : MonoBehaviour
     {
         actualHealth = health;
 
-        // Reinicia el Animator completamente
-        myAnimator.Rebind(); // Opcional, reinicia todo el estado del Animator
-        myAnimator.Update(0f); // Aplica inmediatamente los cambios
+        
+        myAnimator.Rebind(); 
+        myAnimator.Update(0f); 
 
-        // Establece los parámetros manualmente
+        
         myAnimator.SetInteger("Life", actualHealth);
         myAnimator.SetBool("IsDead", false);
         myAnimator.SetBool("IsAttacking", false);

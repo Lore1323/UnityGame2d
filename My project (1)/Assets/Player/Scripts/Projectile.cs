@@ -25,9 +25,8 @@ public class Projectile : MonoBehaviour
             Debug.Log("golpeo al enemigo");
             Enemy enemigo = collision.gameObject.GetComponent<Enemy>();
             if (enemigo != null)
-            {
-                enemigo.DealtDamage += DamagePerBullet;
-                enemigo.TakeDamage();
+            {    
+                enemigo.TakeDamage(DamagePerBullet);
                 Destroy(this.gameObject);
             }
             else

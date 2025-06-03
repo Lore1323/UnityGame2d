@@ -33,9 +33,8 @@ public class Bullet : MonoBehaviour
             
 
             if (enemigo != null)
-            {
-                enemigo.DealtDamage += DamagePerBullet;
-                enemigo.TakeDamage();
+            {  
+                enemigo.TakeDamage(DamagePerBullet);
                 Destroy(gameObject);
             }
         }
