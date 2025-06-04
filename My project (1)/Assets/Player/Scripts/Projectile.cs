@@ -5,6 +5,8 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 22f;
     [SerializeField] private int DamagePerBullet;
+    [SerializeField] private LayerMask Limits;
+
     private Vector2 moveDirection;
     private void Update()
     {
@@ -18,20 +20,19 @@ public class Projectile : MonoBehaviour
     {
         transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision != null)
+        Debug.Log("Trigger detectado con: " + collision.gameObject.name);
+
+        Enemy enemigo = collision.gameObject.GetComponent<Enemy>();
+        if (enemigo != null)
         {
-            Debug.Log("golpeo al enemigo");
-            Enemy enemigo = collision.gameObject.GetComponent<Enemy>();
-            if (enemigo != null)
-            {    
-                enemigo.TakeDamage(DamagePerBullet);
-                Destroy(this.gameObject);
-            }
-            else
+            enemigo.TakeDamage(DamagePerBullet);
             ObjectPoolManager.ReturnObjectToPool(this.gameObject);
-            
+        }
+        if (collision.gameObject.layer==Limits) 
+        {
+            ObjectPoolManager.ReturnObjectToPool(this.gameObject);
         }
     }
 }

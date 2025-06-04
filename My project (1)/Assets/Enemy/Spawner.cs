@@ -34,10 +34,7 @@ public class Spawner : MonoBehaviour
         Enemy.SetActive(true);
         Enemy.transform.localScale = Vector3.one;
         Enemy.GetComponent<Enemy>().ResetEnemy();
-
-
-        Debug.Log("Enemigo spawneó en" + spawnPosition.ToString());
-        
+        Debug.Log("Enemigo spawneó en" + spawnPosition.ToString());       
     }
     
 }

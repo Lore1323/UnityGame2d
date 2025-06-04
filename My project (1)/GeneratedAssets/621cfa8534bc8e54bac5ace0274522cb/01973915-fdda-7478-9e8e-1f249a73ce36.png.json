@@ -1,0 +1,19 @@
+{
+    "asset": "621cfa8534bc8e54bac5ace0274522cb",
+    "fileName": "01973915-fdda-7478-9e8e-1f249a73ce36.png",
+    "prompt": "ThunderEffect",
+    "negativePrompt": "daada",
+    "model": "242b56c1-2224-41c4-8949-2ba760bbfc69",
+    "customSeed": 3,
+    "w3CTraceId": "de68c6e2c5bb5e99b4e87b1d6ed5dde7",
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0
+}
