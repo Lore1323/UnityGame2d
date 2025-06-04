@@ -435,7 +435,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      turret_medium_64x64_0: 5994914031391091359
+      turret_medium_64x64_1: 5394492786704174384
+      turret_medium_64x64_10: -2855390525854776409
+      turret_medium_64x64_11: -2055403001248779786
+      turret_medium_64x64_2: -6953566630783820335
+      turret_medium_64x64_3: -8674152000734817108
+      turret_medium_64x64_4: -5963038035377892288
+      turret_medium_64x64_5: 115210264227519515
+      turret_medium_64x64_6: 6655742551501064248
+      turret_medium_64x64_7: -317634174614344407
+      turret_medium_64x64_8: 4371529909082291313
+      turret_medium_64x64_9: -2475916986014035249
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

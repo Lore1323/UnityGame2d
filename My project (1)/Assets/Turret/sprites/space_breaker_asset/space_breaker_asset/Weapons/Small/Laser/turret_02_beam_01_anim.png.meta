@@ -260,7 +260,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      turret_02_beam_01_anim_0: -3676911330527412397
+      turret_02_beam_01_anim_1: -7398277186546180954
+      turret_02_beam_01_anim_2: -6116743420979249177
+      turret_02_beam_01_anim_3: 996230450170939639
+      turret_02_beam_01_anim_4: 2351023833474048650
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

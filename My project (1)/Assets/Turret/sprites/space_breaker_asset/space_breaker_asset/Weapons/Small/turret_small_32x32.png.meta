@@ -435,7 +435,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      turret_small_32x32_0: -5212330646789743724
+      turret_small_32x32_1: 4100431649796608051
+      turret_small_32x32_10: -7654119810018661886
+      turret_small_32x32_11: 3485402942267121528
+      turret_small_32x32_2: -1018350982770442790
+      turret_small_32x32_3: -2077358519655579491
+      turret_small_32x32_4: -3725462975813950684
+      turret_small_32x32_5: 8113415558051167201
+      turret_small_32x32_6: 7348919111250482520
+      turret_small_32x32_7: -6308397200297479130
+      turret_small_32x32_8: -1792498147036455829
+      turret_small_32x32_9: 7394492202219274018
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -285,7 +285,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      turret_02_mk1_anim_0: 2271381451908684621
+      turret_02_mk1_anim_1: 3374373429960523715
+      turret_02_mk1_anim_2: -6901804633236096239
+      turret_02_mk1_anim_3: 3243394546118356485
+      turret_02_mk1_anim_4: -3665194274893284645
+      turret_02_mk1_anim_5: -5534491744134507137
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
