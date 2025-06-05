@@ -22,7 +22,7 @@ public class WaveManager : MonoBehaviour
 
     public void StartWave(Spawner spawner)
     {
-        if (totalWaves >= currentWave)
+        if (totalWaves > currentWave)
         {
             currentWave++;
         }

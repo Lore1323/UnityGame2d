@@ -58,6 +58,7 @@ public class Enemy : MonoBehaviour
     //esta funcion hace que el enemigo siga al objetivo y setea un bool de las animaciones
     private void FollowObject()
     {
+        
         if (target != null &&myAnimator.GetBool("CanWalk")==true)
         {
             myAnimator.SetBool("CanWalk", true);
@@ -94,6 +95,8 @@ public class Enemy : MonoBehaviour
                 myAnimator.SetBool("IsAttacking", true);
                 lastAttackTime = Time.time;
                 HealthSystem health = currentTarget.GetComponent<HealthSystem>();
+                
+                if (health != null)
                 health.damage += damage;
                 health.TakeDamage();
             }
@@ -113,7 +116,7 @@ public class Enemy : MonoBehaviour
     {
         return Vector2.Distance(currentTarget.position, transform.position) <= attackRange;
     }
-    //esta funcion hace que el enemigo pueda recibir daño
+    //esta funcion hace que el enemigo pueda recibir daï¿½o
     public void TakeDamage(int appliedDamage)
     {
         actualHealth -= appliedDamage;

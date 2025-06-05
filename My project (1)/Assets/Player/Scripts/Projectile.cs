@@ -15,10 +15,14 @@ public class Projectile : MonoBehaviour
     public void SetDirection(Vector2 direction)
     {
         moveDirection = direction;
+        
+        //setea la rotación hacia el punto indicado
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
     private void MoveProjectile()
     {
-        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+        transform.Translate(moveDirection * moveSpeed * Time.deltaTime, Space.World);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -30,7 +34,7 @@ public class Projectile : MonoBehaviour
             enemigo.TakeDamage(DamagePerBullet);
             ObjectPoolManager.ReturnObjectToPool(this.gameObject);
         }
-        if (collision.gameObject.layer==Limits) 
+        if (collision.gameObject.layer== LayerMask.NameToLayer("Limits")) 
         {
             ObjectPoolManager.ReturnObjectToPool(this.gameObject);
         }

@@ -97,31 +97,16 @@ public class Movement : MonoBehaviour
     //esta funcion se encarga de instaciar las balas donde se indique y con la direccion donde se haga click
     private void Shoot()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, detectionRadius, enemyLayer);
-
-        if (hits.Length == 0)
-        {
-            Debug.Log("No enemies in range");
-            return;
-        }
-        Transform nearestEnemy = null;
-        float shortestDistance = Mathf.Infinity;
-        foreach (Collider2D hit in hits)
-        {
-            float distance = Vector2.Distance(transform.position, hit.transform.position);
-            if (distance < shortestDistance)
-            {
-                shortestDistance = distance;
-                nearestEnemy = hit.transform;
-            }
-        }
-        if (nearestEnemy == null)
-            return;
-        Vector2 direction = (nearestEnemy.position - spawnPoint.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        GameObject newBullet = ObjectPoolManager.SpawnObject(bullet, spawnPoint.position, Quaternion.Euler(0, 0, angle));
-        newBullet.GetComponent<Projectile>().SetDirection(direction);
-        newBullet.SetActive(true);    
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        
+        Vector2 direction = ((Vector2)mouseWorldPos - (Vector2)spawnPoint.position).normalized;
+        
+        GameObject newBullet = ObjectPoolManager.SpawnObject(bullet, spawnPoint.position, Quaternion.identity);
+        var proj = newBullet.GetComponent<Projectile>();
+        if (proj != null)
+            proj.SetDirection(direction);
+        
+        newBullet.SetActive(true);
     }
     //esta funcion se encarga de que el player siga con la mirada al mouse
     private void AdjustPlayerFacingDirection()
