@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 22
-  DamagePerBullet: 10
+  DamagePerBullet: 25
   Limits:
     serializedVersion: 2
     m_Bits: 1024

@@ -27,7 +27,6 @@ public class ShopManager : MonoBehaviour
             return true;
         }
         else {
-            Debug.Log("no money");
             PlaceTurret.canPurchaseThis=false;
             return false;
         }

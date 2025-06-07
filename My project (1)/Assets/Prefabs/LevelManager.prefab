@@ -98,5 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e34082a05488d6549a2aacd834d904d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAmount: 0
-  waveNumber: 0
+  initialEnemies: 3
+  currentWave: 1
+  totalWaves: 5
+  timeBetweenWaves: 5
+  timeBetweenSpawns: 0.5
+  waveMultiplier: 0
+  enemiesAlive: 0

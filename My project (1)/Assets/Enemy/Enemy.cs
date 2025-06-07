@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
     private Animator myAnimator;
     private SpriteRenderer mySpriteRenderer;
     private float lastAttackTime;
+    private bool isDead = false;
 
     private void Awake()
     {
@@ -119,12 +120,13 @@ public class Enemy : MonoBehaviour
     //esta funcion hace que el enemigo pueda recibir da�o
     public void TakeDamage(int appliedDamage)
     {
+        if (isDead) return;
         actualHealth -= appliedDamage;
         actualHealth = Mathf.Clamp(actualHealth, 0, health);
         if (actualHealth <= 0)
         {
+            isDead = true;
             myAnimator.SetBool("IsDead", true);
-            Debug.Log("Muere");
             ShopManager.main.IncreaseCurrency(worth);    
         }
     }
@@ -141,17 +143,14 @@ public class Enemy : MonoBehaviour
     {
         actualHealth = health;
 
-        
         myAnimator.Rebind(); 
         myAnimator.Update(0f); 
-
-        
+   
         myAnimator.SetInteger("Life", actualHealth);
         myAnimator.SetBool("IsDead", false);
         myAnimator.SetBool("IsAttacking", false);
         myAnimator.SetBool("CanWalk", false);
-        Debug.Log("Enemigo reiniciado con vida: " + actualHealth);
-
+        isDead = false;
         currentTarget = target;
     }
 }

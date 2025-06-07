@@ -23,8 +23,8 @@ public class UIShop : MonoBehaviour
 
     private void Update()
     {
-        Controller.Interact.OpenShop.started += ctx => OpenShop();
-        Controller.Interact.OpenShop.started -= ctx => OpenShop();
+        Controller.B.OpenShop.started += ctx => OpenShop();
+        Controller.B.OpenShop.started -= ctx => OpenShop();
     }
 
     public void OpenShop()

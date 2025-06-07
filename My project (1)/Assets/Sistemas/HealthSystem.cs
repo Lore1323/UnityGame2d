@@ -22,7 +22,10 @@ public class HealthSystem : MonoBehaviour
     private void Update()
     {
         damage = 0;
-        animator.SetInteger("Life", maxHealth);
+        if (animator != null)
+        {
+            animator.SetInteger("Life", maxHealth);
+        }
     }
     public void TakeDamage()
     {

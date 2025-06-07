@@ -85,6 +85,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SpecialAttack",
+                    "type": "Button",
+                    "id": "cfa37f15-7261-4eaa-b87e-4bfaa5379820",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -98,21 +107,32 @@
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a206b01d-a19f-47d1-8e4b-9e31dee6f19d",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpecialAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
         {
-            "name": "Interact",
+            "name": "B",
             "id": "31802de1-fa6b-4436-8a07-cabdb41ec63c",
             "actions": [
                 {
                     "name": "Interact",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "0db854e8-c277-46f8-b7be-8bc8bcd70bd8",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "OpenShop",
