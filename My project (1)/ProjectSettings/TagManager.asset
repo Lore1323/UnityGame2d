@@ -44,11 +44,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: tres
+    uniqueID: 452573957
+    locked: 0
   - name: Player
     uniqueID: 76314771
     locked: 0
-  - name: tres
-    uniqueID: 452573957
+  - name: UI
+    uniqueID: 666929121
     locked: 0
   m_RenderingLayers:
   - Default
