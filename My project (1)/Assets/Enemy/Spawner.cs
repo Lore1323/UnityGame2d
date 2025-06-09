@@ -3,89 +3,40 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject prefab;
-    public Transform[] spawnPoints;
-
-    public float timeBeforeFirstWave = 30f;
-    public float timeBetweenWaves = 60f;
     public float spawnInterval = 3f;
-    public int enemiesPerWave = 5;
+    public Transform[] spawnPoints;
+    public int spawnAmount = 5;
+    
+    private float timer;
+    
 
-    private float globalTimer = 0f;
-    private float spawnTimer = 0f;
-
-    private int currentWave = 0;
-    private int enemiesSpawned = 0;
-    private bool isWaveActive = false;
-
-    private enum SpawnerState { Waiting, Spawning, Cooldown }
-    private SpawnerState currentState = SpawnerState.Waiting;
-
+    // Update is called once per frame
     void Update()
     {
-        globalTimer += Time.deltaTime;
+        timer += Time.deltaTime;
 
-        switch (currentState)
+        if (timer >= spawnInterval & spawnAmount > 0)
         {
-            case SpawnerState.Waiting:
-                if (globalTimer >= timeBeforeFirstWave)
-                {
-                    StartWave();
-                }
-                break;
-
-            case SpawnerState.Spawning:
-                spawnTimer += Time.deltaTime;
-
-                if (spawnTimer >= spawnInterval && enemiesSpawned < enemiesPerWave)
-                {
-                    SpawnEnemy();
-                    spawnTimer = 0f;
-                    enemiesSpawned++;
-                }
-
-                if (enemiesSpawned >= enemiesPerWave)
-                {
-                    currentState = SpawnerState.Cooldown;
-                    globalTimer = 0f;
-                }
-                break;
-
-            case SpawnerState.Cooldown:
-                if (globalTimer >= timeBetweenWaves)
-                {
-                    StartWave();
-                }
-                break;
+            Spawn();
+            timer = 0f;
+            spawnAmount -= 1;
         }
     }
 
-    void StartWave()
-    {
-        currentWave++;
-        enemiesSpawned = 0;
-        globalTimer = 0f;
-        isWaveActive = true;
-        currentState = SpawnerState.Spawning;
-
-        // Aumentar dificultad: enemigos con más vida
-        EnemyStats.HealthMultiplier = 1f + currentWave * 0.5f;
-        Debug.Log($"Wave {currentWave} started. Enemies have {EnemyStats.HealthMultiplier}x health.");
-    }
-
-    void SpawnEnemy()
+    void Spawn()
     {
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        GameObject enemy = ObjectPoolManager.Instance.SpawnObject(prefab, spawnPoint.position, Quaternion.identity);
-
-        enemy.SetActive(true);
-        enemy.transform.localScale = Vector3.one;
-        enemy.GetComponent<Enemy>().ResetEnemy();
-
-        Debug.Log($"Spawned enemy {enemiesSpawned + 1} at {spawnPoint.position}");
+        
+        Vector2 spawnPosition = new Vector2(spawnPoint.position.x, spawnPoint.position.y);
+        
+        GameObject Enemy = ObjectPoolManager.SpawnObject(prefab, spawnPoint.position, Quaternion.identity);
+        
+        Enemy.SetActive(true);
+        Enemy.transform.localScale = Vector3.one;
+        Enemy.GetComponent<Enemy>().ResetEnemy();
+        Debug.Log("Enemigo spawneó en" + spawnPosition.ToString());       
+        
+        
     }
-
-    public static class EnemyStats
-    {
-        public static float HealthMultiplier = 1f;
-    }
+    
 }

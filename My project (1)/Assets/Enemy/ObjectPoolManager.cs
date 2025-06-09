@@ -6,17 +6,8 @@ using UnityEngine;
 public class ObjectPoolManager : MonoBehaviour
 {
     public static List<PooledObjectInfo> ObjectPools = new List<PooledObjectInfo>();
-    public static ObjectPoolManager Instance;
-    
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(gameObject);
-    }
 
-    public GameObject SpawnObject(GameObject objectToSpawn, Vector3 spawnPosition, Quaternion spawnRotation)
+    public static GameObject SpawnObject(GameObject objectToSpawn, Vector3 spawnPosition, Quaternion spawnRotation)
     {
         PooledObjectInfo pool = null;
         foreach (PooledObjectInfo p in ObjectPools)

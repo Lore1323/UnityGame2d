@@ -83,7 +83,7 @@ public class AttackHandler : MonoBehaviour
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = ((Vector2)mouseWorldPos - (Vector2)spawnPoint.position).normalized;
 
-        GameObject newBullet = ObjectPoolManager.Instance.SpawnObject(bullet, spawnPoint.position, Quaternion.identity);
+        GameObject newBullet = ObjectPoolManager.SpawnObject(bullet, spawnPoint.position, Quaternion.identity);
         var proj = newBullet.GetComponent<Projectile>();
         if (proj != null)
             proj.SetDirection(direction);
@@ -139,7 +139,7 @@ public class AttackHandler : MonoBehaviour
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = ((Vector2)mouseWorldPos - (Vector2)spawnPoint.position).normalized;
 
-        GameObject Cohetee= ObjectPoolManager.Instance.SpawnObject(specialBulletPrefab, spawnPoint.position, Quaternion.identity);
+        GameObject Cohetee= ObjectPoolManager.SpawnObject(specialBulletPrefab, spawnPoint.position, Quaternion.identity);
         var proj = Cohetee.GetComponent<Cohete>();
         if (proj != null)
             proj.SetDirection(direction);

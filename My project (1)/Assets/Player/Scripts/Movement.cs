@@ -118,7 +118,7 @@ public class Movement : MonoBehaviour
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = ((Vector2)mouseWorldPos - (Vector2)spawnPoint.position).normalized;
 
-        GameObject newBullet = ObjectPoolManager.Instance.SpawnObject(bullet, spawnPoint.position, Quaternion.identity);
+        GameObject newBullet = ObjectPoolManager.SpawnObject(bullet, spawnPoint.position, Quaternion.identity);
         var proj = newBullet.GetComponent<Projectile>();
         if (proj != null)
             proj.SetDirection(direction);
@@ -130,7 +130,7 @@ public class Movement : MonoBehaviour
         isReloading = true;
         Debug.Log("Recargando...");
 
-        // Aquï¿½ podrï¿½as aï¿½adir efectos visuales o de sonido de recarga
+        // Aquí podrías añadir efectos visuales o de sonido de recarga
 
         yield return new WaitForSeconds(reloadTime);
 
