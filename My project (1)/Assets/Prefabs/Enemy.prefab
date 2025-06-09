@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2224687050420872710}
   - component: {fileID: 4332357065435207995}
   - component: {fileID: 7645734593823174158}
+  - component: {fileID: 2284044136732852373}
   - component: {fileID: 5714395080786348828}
   - component: {fileID: 4342521552861146787}
   - component: {fileID: -5749789755662272694}
@@ -116,6 +117,21 @@ MonoBehaviour:
   DealtDamage: 0
   playerTarget: {fileID: 7063592945626848021, guid: c2b10e270bba6f04e986d595d3550e56, type: 3}
   target: {fileID: 4424838756770956559, guid: 4a57d482ecc8e3349ab23c660470164d, type: 3}
+--- !u!114 &2284044136732852373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5562572005338696824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2688e1e9723ddb94795de95cd145d733, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DynamicSortingOrder
+  updateOnceOnStart: 0
+  baseSortingOrder: 10000
+  orderOffset: 0
 --- !u!70 &5714395080786348828
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -23,10 +23,12 @@ public class ObjectToDefense : MonoBehaviour
     [SerializeField] private GameObject whiteWindows;
 
 
+    private Animator animator;
     public PlayerController controller;
     private void Awake()
     {
         controller = new PlayerController();
+        animator = GetComponent<Animator>();
     }
     private void OnEnable()
     {
@@ -94,5 +96,9 @@ public class ObjectToDefense : MonoBehaviour
     {
         if (whiteWindows != null)
             whiteWindows.SetActive(false);
+    }
+    private void DefenseSucesfully()
+    {
+        animator.SetBool("WinWaves", true);
     }
 }
