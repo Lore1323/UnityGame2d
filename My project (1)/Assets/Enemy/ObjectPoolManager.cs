@@ -58,7 +58,6 @@ public class ObjectPoolManager : MonoBehaviour
 
         if (pool == null)
         {
-           Debug.LogWarning("Intentando soltar un objeto que no es pooleable" + obj.name);
            
         }
 

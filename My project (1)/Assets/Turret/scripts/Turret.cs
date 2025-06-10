@@ -5,16 +5,16 @@ using UnityEditor;
 
 public class Turret : MonoBehaviour
 {
-    [Header ("References")]
+    [Header("References")]
     [SerializeField] private Transform rotatePoint;
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
 
-    [Header ("Attribute")]
+    [Header("Attribute")]
     [SerializeField] private float Range = 1f;
     [SerializeField] private float Cadence = 1f;
-    
+
     private Transform target;
     private float timeUntilFire;
 
@@ -26,30 +26,29 @@ public class Turret : MonoBehaviour
 
     void Update()
     {
-        if (target == null)
+        // Si no hay target o el target ya fue destruido, buscar uno nuevo
+        if (target == null || !target.gameObject.activeInHierarchy)
         {
             FindTarget();
             return;
         }
-        RotateTurretTarget();
+        // Si el target está fuera de rango, buscar otro
         if (!CheckTargetIsInRange())
         {
             target = null;
+            return;
         }
-        else
+        RotateTurretTarget();
+        timeUntilFire += Time.deltaTime;
+        if (timeUntilFire >= 1f / Cadence)
         {
-            timeUntilFire += Time.deltaTime;
-            if (timeUntilFire >= 1f / Cadence)
-            {
-                shoot();
-                timeUntilFire = 0f;
-            }
-
+            Shoot();
+            timeUntilFire = 0f;
         }
     }
     private void RotateTurretTarget()
     {
-        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg -90f;
+        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
         transform.rotation = targetRotation;
     }
@@ -68,10 +67,9 @@ public class Turret : MonoBehaviour
         return Vector2.Distance(target.position, transform.position) <= Range;
     }
 
-    private void shoot()
+    private void Shoot()
     {
-        Debug.Log("dispare");
-        GameObject bulletObj= Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+        GameObject bulletObj = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         Bullet bulletScript = bulletObj.GetComponent<Bullet>();
         bulletScript.SetTarget(target);
     }

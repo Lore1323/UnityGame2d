@@ -118,7 +118,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7852202133698115720}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -20.97978, y: 3.32, z: 0.084233135}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -141,9 +141,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 5562572005338696824, guid: eb23e7266363a8d42ba09b90e281cd5c, type: 3}
-  spawnInterval: 2
   spawnPoints:
   - {fileID: 7095453319266860523}
   - {fileID: 6453372453888555505}
   - {fileID: 3941172925797343795}
-  spawnAmount: 15
+  timeBeforeFirstWave: 10
+  timeBetweenWaves: 30
+  spawnInterval: 5
+  enemiesPerWave: 15
