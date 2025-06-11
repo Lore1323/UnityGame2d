@@ -60,7 +60,7 @@ public class Enemy : MonoBehaviour
     private void FollowObject()
     {
         
-        if (target != null &&myAnimator.GetBool("CanWalk")==true)
+        if (target != null && myAnimator.GetBool("CanWalk")==true)
         {
             myAnimator.SetBool("CanWalk", true);
             SearchPlayer();

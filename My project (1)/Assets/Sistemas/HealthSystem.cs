@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour
@@ -39,5 +40,6 @@ public class HealthSystem : MonoBehaviour
     private void Death()
     {
         Destroy(gameObject);
+        SceneManager.LoadScene("Derrota");
     }
 }
