@@ -4,6 +4,9 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject prefab;
+    public Transform playerTarget;
+    public Transform fallbackTarget; // por ejemplo, una torre u objetivo base
+
     public Transform[] spawnPoints;
 
     public float timeBeforeFirstWave = 30f;
@@ -76,8 +79,12 @@ public class Spawner : MonoBehaviour
 
         enemy.SetActive(true);
         enemy.transform.localScale = Vector3.one;
-        enemy.GetComponent<Enemy>().ResetEnemy();
+
         Enemy enemyScript = enemy.GetComponent<Enemy>();
+
+        enemyScript.playerTarget = playerTarget;
+        enemyScript.target = fallbackTarget;
+
         enemyScript.ResetEnemy();
         enemyScript.SetStats(currentWave);
     }

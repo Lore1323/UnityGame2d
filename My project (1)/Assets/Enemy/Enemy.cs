@@ -44,14 +44,28 @@ public class Enemy : MonoBehaviour
         Handles.DrawWireDisc(transform.position, transform.forward, attackRange);
     }
 
-    void Start()
+    private void Start()
     {
-        //seteo del objetivo a seguir
         currentTarget = target;
+
+        if (playerTarget == null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                playerTarget = player.transform;
+            }
+            else
+            {
+                Debug.LogWarning("No se encontró un objeto con la etiqueta 'Player'");
+            }
+        }
     }
+
 
     private void Update()
     {
+        CheckPlayerIsInRange();
         FollowObject();
         AttackObjective();
         myAnimator.SetFloat("Life", actualHealth);    
@@ -98,8 +112,8 @@ public class Enemy : MonoBehaviour
                 HealthSystem health = currentTarget.GetComponent<HealthSystem>();
                 
                 if (health != null)
-                health.damage += damage;
-                health.TakeDamage();
+                
+                health.TakeDamage(damage);
             }
         }
         else
