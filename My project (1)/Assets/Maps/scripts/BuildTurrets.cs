@@ -1,32 +1,37 @@
-using UnityEditor;
+using TMPro;
 using UnityEngine;
 
 public class BuildTurrets : MonoBehaviour
 {
-    public static BuildTurrets main;
-    public static bool SelectTurret;
-    [Header("References")]
-    [SerializeField] private ShopTower[] towers;
+    public static BuildTurrets Instance { get; private set; }
 
-    private int selectedTurret = 0;
+    [SerializeField] public ShopTower[] towers;
+    private int selectedTurretIndex = 0;
+
     public LayerMask placeTurret;
+    public bool TurretSelected { get; set; }
 
     private void Awake()
     {
-        main = this;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
     }
-    
+
     public ShopTower GetSelectedTurret()
     {
-        SelectTurret = true;
-        return towers[selectedTurret];
+        TurretSelected = true;
+        return towers[selectedTurretIndex];
     }
-    public void SetSelectecTurret(int _selectedTurret)
+
+    public void SetSelectedTurret(int index)
     {
-        if (SelectTurret == true)
+        if (index >= 0 && index < towers.Length)
         {
-            selectedTurret = _selectedTurret;
-            Debug.Log("torreta Seleccionada");
+            selectedTurretIndex = index;  
         }
     }
 }

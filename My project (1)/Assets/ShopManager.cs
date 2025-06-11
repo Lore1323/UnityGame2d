@@ -2,33 +2,32 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
-    public static ShopManager main;
+    public static ShopManager Instance { get; private set; }
 
-    public int currency;
+    public int Currency { get; private set; } = 100;
+
     private void Awake()
     {
-        main = this;
-    }
-    private void Start()
-    {
-        currency = 100;
-    }
-    public void IncreaseCurrency(int ammount)
-    {
-        currency += ammount;
-        PlaceTurret.canPurchaseThis = true;
-    }
-    public bool SpendCurrency(int ammount)
-    {
-        if (ammount <= currency)
+        if (Instance != null && Instance != this)
         {
-            //buy item
-            currency -= ammount;
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+
+    public bool SpendCurrency(int amount)
+    {
+        if (Currency >= amount)
+        {
+            Currency -= amount;
             return true;
         }
-        else {
-            PlaceTurret.canPurchaseThis=false;
-            return false;
-        }
+        return false;
+    }
+
+    public void AddCurrency(int amount)
+    {
+        Currency += amount;
     }
 }

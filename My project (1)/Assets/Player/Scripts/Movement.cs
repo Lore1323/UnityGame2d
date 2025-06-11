@@ -82,7 +82,6 @@ public class Movement : MonoBehaviour
     }
     //esta funcion se encarga del ataque 
     void Attacks(){
-        Debug.Log("Attack ejecutado");
         if (modeAttack == true && isShopOpen == false)
         {
             if (isShopOpen == false){
@@ -128,7 +127,7 @@ public class Movement : MonoBehaviour
     private IEnumerator Reload()
     {
         isReloading = true;
-        Debug.Log("Recargando...");
+
 
         // Aquí podrías añadir efectos visuales o de sonido de recarga
 
@@ -136,7 +135,6 @@ public class Movement : MonoBehaviour
 
         currentShots = 0;
         isReloading = false;
-        Debug.Log("Recarga completa.");
     }
     //esta funcion se encarga de que el player siga con la mirada al mouse
     private void AdjustPlayerFacingDirection()

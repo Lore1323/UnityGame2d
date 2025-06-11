@@ -115,8 +115,9 @@ MonoBehaviour:
   attackRange: 1.5
   speed: 2
   DealtDamage: 0
-  playerTarget: {fileID: 7063592945626848021, guid: c2b10e270bba6f04e986d595d3550e56, type: 3}
+  playerTarget: {fileID: 5873362986476981118, guid: c2b10e270bba6f04e986d595d3550e56, type: 3}
   target: {fileID: 4424838756770956559, guid: 4a57d482ecc8e3349ab23c660470164d, type: 3}
+  actualHealth: 0
 --- !u!114 &2284044136732852373
 MonoBehaviour:
   m_ObjectHideFlags: 0

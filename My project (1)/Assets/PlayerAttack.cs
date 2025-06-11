@@ -31,6 +31,7 @@ public class AttackHandler : MonoBehaviour
     public static bool isAttacking = false;
     private int reloadCount = 0;
     private int maxReloads = 4;
+    public static bool ignoreNextClick = false;
 
     private readonly int Fire_hash = Animator.StringToHash("Fire");
 
@@ -57,19 +58,22 @@ public class AttackHandler : MonoBehaviour
 
     private void TryAttack()
     {
-        if (PlayerMovement.isShopOpen || !PlayerMovement.modeAttack || isReloading)
-            return;
-
-        if (Time.time < lastFireTime + fireCooldown)
-            return;
-
-        if (currentShots >= maxShotsBeforeReload)
+        if (!ignoreNextClick)
         {
-            StartCoroutine(Reload());
-            return;
-        }
+            if (PlayerMovement.isShopOpen || !PlayerMovement.modeAttack || isReloading)
+                return;
 
-        Attack();
+            if (Time.time < lastFireTime + fireCooldown)
+                return;
+
+            if (currentShots >= maxShotsBeforeReload)
+            {
+                StartCoroutine(Reload());
+                return;
+            }
+
+            Attack();
+        }
     }
 
     private void Attack()

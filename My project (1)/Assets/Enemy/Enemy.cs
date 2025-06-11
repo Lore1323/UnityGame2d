@@ -8,8 +8,8 @@ using UnityEditor.Rendering.Analytics;
 public class Enemy : MonoBehaviour
 {
     [Header("Attribute")]
-    [SerializeField] public int health;
-    [SerializeField] private int damage;
+    [SerializeField] public float health;
+    [SerializeField] private float damage;
     [SerializeField] private int worth;
     [SerializeField] private float attackCooldown = 1f; 
     [SerializeField] private float detectPlayer;
@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public Transform playerTarget;
     [SerializeField] public Transform target;
 
-    private int actualHealth;
+    [SerializeField] private float actualHealth;
     private Transform currentTarget;
     private float distance;
     private Animator myAnimator;
@@ -54,13 +54,13 @@ public class Enemy : MonoBehaviour
     {
         FollowObject();
         AttackObjective();
-        myAnimator.SetInteger("Life", actualHealth);    
+        myAnimator.SetFloat("Life", actualHealth);    
     }
     //esta funcion hace que el enemigo siga al objetivo y setea un bool de las animaciones
     private void FollowObject()
     {
         
-        if (target != null &&myAnimator.GetBool("CanWalk")==true)
+        if (target != null && myAnimator.GetBool("CanWalk")==true)
         {
             myAnimator.SetBool("CanWalk", true);
             SearchPlayer();
@@ -122,12 +122,12 @@ public class Enemy : MonoBehaviour
     {
         if (isDead) return;
         actualHealth -= appliedDamage;
-        actualHealth = Mathf.Clamp(actualHealth, 0, health);
+        actualHealth = Mathf.Clamp(actualHealth, 0,500);
         if (actualHealth <= 0)
         {
             isDead = true;
             myAnimator.SetBool("IsDead", true);
-            ShopManager.main.IncreaseCurrency(worth);    
+            ShopManager.Instance.AddCurrency(worth);    
         }
     }
     //esta funcion hace que el enemigo vuelva al PoolManager
@@ -141,16 +141,36 @@ public class Enemy : MonoBehaviour
     }
     public void ResetEnemy()
     {
-        actualHealth = health;
-
+        actualHealth = health * EnemyStats.HealthMultiplier;
         myAnimator.Rebind(); 
         myAnimator.Update(0f); 
    
-        myAnimator.SetInteger("Life", actualHealth);
+        myAnimator.SetFloat("Life", actualHealth);
         myAnimator.SetBool("IsDead", false);
         myAnimator.SetBool("IsAttacking", false);
         myAnimator.SetBool("CanWalk", false);
         isDead = false;
         currentTarget = target;
+    }
+    public void SetStats(int wave)
+    {
+        if (wave == 1)
+        {
+            actualHealth = health;
+            speed = speed;
+            damage = damage;
+        }
+        else if (wave == 2)
+        {
+            actualHealth= health * EnemyStats.HealthMultiplier;
+            speed*=EnemyStats.speedMultiplier;
+            damage*=EnemyStats.damageMultiplier;
+        }
+        else
+        {
+            actualHealth *= EnemyStats.HealthMultiplier;
+            speed *= EnemyStats.speedMultiplier;
+            damage *= EnemyStats.damageMultiplier;
+        }
     }
 }

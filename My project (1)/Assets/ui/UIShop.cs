@@ -1,54 +1,53 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class UIShop : MonoBehaviour
 {
-
-    public GameObject Shop;
-    public PlayerController Controller;    
-    public static bool TurretSelected=false;
-    public static bool modeShop=false;
+    private PlayerController controller;
+    public static bool TurretSelected { get; set; } = false;
+    public static bool modeShop { get; set; } = false;
+    private Animator animator;
 
     private void Awake()
     {
-        Controller = new PlayerController();
+        animator = GetComponent<Animator>();
+        controller = new PlayerController();
     }
 
     private void OnEnable()
     {
-        Controller.Enable();    
+        controller.Enable();
+        controller.B.OpenShop.started += ctx => ToggleShop();
     }
 
-    private void Update()
+    private void OnDisable()
     {
-        Controller.B.OpenShop.started += ctx => OpenShop();
-        Controller.B.OpenShop.started -= ctx => OpenShop();
+        controller.B.OpenShop.started -= ctx => ToggleShop();
+        controller.Disable();
     }
 
-    public void OpenShop()
-    {
-        modeShop = true;
-        Movement.modeAttack = false;
-        Movement.isShopOpen = true;
-        bool isActive = Shop.activeSelf;
-        
-        Shop.SetActive(!isActive);
-        Time.timeScale = isActive ? 1f : 0f;
-        if (isActive)
-        {
-            modeShop=false;
-            Movement.isShopOpen = false;
-            Movement.modeAttack=true;
-        }
+    public void ToggleShop()
+    {    
+        animator.SetTrigger("OpenShop");   
     }
-    public void SelectedTurret()
+
+    public void SelectTurret()
     {
-        TurretSelected = true;
-        if (TurretSelected == true)
-        {
-            Shop.SetActive(false);    
-        }
+        UIShop.TurretSelected = true;
+        UIShop.modeShop = true;
+        animator.SetTrigger("OpenShop");
+        Time.timeScale = 1f;
+
+        // NO activar modo ataque aquí.
+        // Movement.modeAttack = true;
+        Movement.isShopOpen = false;
+    }
+    public void ActiveTrue()
+    {
+        AttackHandler.ignoreNextClick = true;
+    }
+    public void ActiveFalse()
+    {
+        AttackHandler.ignoreNextClick = false;
     }
 }

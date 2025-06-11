@@ -1,16 +1,18 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 100;
-    private int currentHealth;
-    public int damage;
+    [SerializeField] private float maxHealth = 100;
+    private float currentHealth;
+    public float damage;
     private Animator animator;
     public Slider slider;
 
     private void Awake()
     {
+        maxHealth = Mathf.Clamp(maxHealth, 0, maxHealth);
         animator = GetComponent<Animator>();
     }
     private void Start()
@@ -22,9 +24,9 @@ public class HealthSystem : MonoBehaviour
     private void Update()
     {
         damage = 0;
-        if (animator != null)
+        if (animator != null && maxHealth==0)
         {
-            animator.SetInteger("Life", maxHealth);
+            animator.SetBool("IsDead", true);
         }
     }
     public void TakeDamage()
@@ -37,7 +39,7 @@ public class HealthSystem : MonoBehaviour
     //esta funcion se llama al final de la animacion de muerte del player
     private void Death()
     {
-        Debug.Log("Muerto");
         Destroy(gameObject);
+        SceneManager.LoadScene("Derrota");
     }
 }

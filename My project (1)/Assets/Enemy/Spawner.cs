@@ -1,42 +1,84 @@
 using UnityEngine;
 
+
 public class Spawner : MonoBehaviour
 {
     public GameObject prefab;
-    public float spawnInterval = 3f;
     public Transform[] spawnPoints;
-    public int spawnAmount = 5;
-    
-    private float timer;
-    
 
-    // Update is called once per frame
+    public float timeBeforeFirstWave = 30f;
+    public float timeBetweenWaves = 60f;
+    public float spawnInterval = 3f;
+    public int enemiesPerWave = 5;
+
+    private float globalTimer = 0f;
+    private float spawnTimer = 0f;
+
+    private int currentWave = 0;
+    private int enemiesSpawned = 0;
+    private bool isWaveActive = false;
+
+    private enum SpawnerState { Waiting, Spawning, Cooldown }
+    private SpawnerState currentState = SpawnerState.Waiting;
+
     void Update()
     {
-        timer += Time.deltaTime;
+        globalTimer += Time.deltaTime;
 
-        if (timer >= spawnInterval & spawnAmount > 0)
+        switch (currentState)
         {
-            Spawn();
-            timer = 0f;
-            spawnAmount -= 1;
+            case SpawnerState.Waiting:
+                if (globalTimer >= timeBeforeFirstWave)
+                {
+                    StartWave();
+                }
+                break;
+
+            case SpawnerState.Spawning:
+                spawnTimer += Time.deltaTime;
+
+                if (spawnTimer >= spawnInterval && enemiesSpawned < enemiesPerWave)
+                {
+                    SpawnEnemy();
+                    spawnTimer = 0f;
+                    enemiesSpawned++;
+                }
+
+                if (enemiesSpawned >= enemiesPerWave)
+                {
+                    currentState = SpawnerState.Cooldown;
+                    globalTimer = 0f;
+                }
+                break;
+
+            case SpawnerState.Cooldown:
+                if (globalTimer >= timeBetweenWaves)
+                {
+                    StartWave();
+                }
+                break;
         }
     }
 
-    void Spawn()
+    void StartWave()
+    {
+        currentWave++;
+        enemiesSpawned = 0;
+        globalTimer = 0f;
+        isWaveActive = true;
+        currentState = SpawnerState.Spawning;
+    }
+
+    void SpawnEnemy()
     {
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        
-        Vector2 spawnPosition = new Vector2(spawnPoint.position.x, spawnPoint.position.y);
-        
-        GameObject Enemy = ObjectPoolManager.SpawnObject(prefab, spawnPoint.position, Quaternion.identity);
-        
-        Enemy.SetActive(true);
-        Enemy.transform.localScale = Vector3.one;
-        Enemy.GetComponent<Enemy>().ResetEnemy();
-        Debug.Log("Enemigo spawneó en" + spawnPosition.ToString());       
-        
-        
+        GameObject enemy = ObjectPoolManager.SpawnObject(prefab, spawnPoint.position, Quaternion.identity);
+
+        enemy.SetActive(true);
+        enemy.transform.localScale = Vector3.one;
+        enemy.GetComponent<Enemy>().ResetEnemy();
+        Enemy enemyScript = enemy.GetComponent<Enemy>();
+        enemyScript.ResetEnemy();
+        enemyScript.SetStats(currentWave);
     }
-    
 }
