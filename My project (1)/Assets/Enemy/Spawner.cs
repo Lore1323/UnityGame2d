@@ -71,9 +71,14 @@ public class Spawner : MonoBehaviour
             Debug.Log("Todas las oleadas completadas");
             currentState = SpawnerState.Waiting; // O podrías desactivar el Spawner con `enabled = false;`
             torre.DefenseSucesfully();
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.RegisterTowerCompleted();
+            }
             Destroy(gameObject);
             return;
         }
+       
 
         currentWave++;
         enemiesSpawned = 0;
