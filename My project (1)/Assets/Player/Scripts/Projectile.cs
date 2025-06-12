@@ -32,10 +32,13 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy enemigo = collision.gameObject.GetComponent<Enemy>();
+
+        EnemyTutorrial tutorrial = collision.gameObject.GetComponent<EnemyTutorrial>();
         
         if (enemigo != null)
         {
             enemigo.TakeDamage(DamagePerBullet);
+            tutorrial.TakeDamage(DamagePerBullet);
             animator.SetBool("Impact", true);
             ObjectPoolManager.ReturnObjectToPool(this.gameObject);
         }
