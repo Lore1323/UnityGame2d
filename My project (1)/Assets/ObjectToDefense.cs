@@ -23,7 +23,7 @@ public class ObjectToDefense : MonoBehaviour
     [SerializeField] private GameObject whiteWindows;
 
 
-    private Animator animator;
+    public Animator animator;
     public PlayerController controller;
     private void Awake()
     {
@@ -90,6 +90,7 @@ public class ObjectToDefense : MonoBehaviour
         {
             whiteWindows.SetActive(true);
             Invoke(nameof(Deactivate), durationWindows);
+            animator.SetBool("WinWaves", false);
         }
     }
     private void Deactivate()
@@ -97,7 +98,7 @@ public class ObjectToDefense : MonoBehaviour
         if (whiteWindows != null)
             whiteWindows.SetActive(false);
     }
-    private void DefenseSucesfully()
+    public void DefenseSucesfully()
     {
         animator.SetBool("WinWaves", true);
     }

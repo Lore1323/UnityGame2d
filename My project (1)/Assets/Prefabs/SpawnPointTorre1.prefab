@@ -141,11 +141,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 5562572005338696824, guid: eb23e7266363a8d42ba09b90e281cd5c, type: 3}
+  playerTarget: {fileID: 5873362986476981118, guid: c2b10e270bba6f04e986d595d3550e56, type: 3}
+  fallbackTarget: {fileID: 4424838756770956559, guid: 4a57d482ecc8e3349ab23c660470164d, type: 3}
   spawnPoints:
   - {fileID: 7095453319266860523}
   - {fileID: 6453372453888555505}
   - {fileID: 3941172925797343795}
   timeBeforeFirstWave: 10
-  timeBetweenWaves: 30
+  timeBetweenWaves: 15
   spawnInterval: 5
-  enemiesPerWave: 15
+  enemiesPerWave: 3

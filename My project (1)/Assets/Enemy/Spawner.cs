@@ -6,13 +6,14 @@ public class Spawner : MonoBehaviour
     public GameObject prefab;
     public Transform playerTarget;
     public Transform fallbackTarget; // por ejemplo, una torre u objetivo base
-
+    public ObjectToDefense torre;
     public Transform[] spawnPoints;
 
     public float timeBeforeFirstWave = 30f;
     public float timeBetweenWaves = 60f;
     public float spawnInterval = 3f;
     public int enemiesPerWave = 5;
+    public int maxWaves = 5;
 
     private float globalTimer = 0f;
     private float spawnTimer = 0f;
@@ -65,12 +66,22 @@ public class Spawner : MonoBehaviour
 
     void StartWave()
     {
+        if (currentWave >= maxWaves)
+        {
+            Debug.Log("Todas las oleadas completadas");
+            currentState = SpawnerState.Waiting; // O podrías desactivar el Spawner con `enabled = false;`
+            torre.DefenseSucesfully();
+            Destroy(gameObject);
+            return;
+        }
+
         currentWave++;
         enemiesSpawned = 0;
         globalTimer = 0f;
         isWaveActive = true;
-        currentState = SpawnerState.Spawning;
+        currentState = SpawnerState.Spawning;    
     }
+
 
     void SpawnEnemy()
     {

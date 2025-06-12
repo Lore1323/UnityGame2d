@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2414871323003492643}
   - component: {fileID: 104254810043425275}
   - component: {fileID: 1133948449837869091}
+  - component: {fileID: 2794846220163376953}
   m_Layer: 0
   m_Name: Jaws_plant_shadow2_2
   m_TagString: Untagged
@@ -129,6 +130,21 @@ CircleCollider2D:
   m_Offset: {x: 0.07345104, y: -0.41132927}
   m_Radius: 0.8929415
 --- !u!114 &1133948449837869091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3041032522772234311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2688e1e9723ddb94795de95cd145d733, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DynamicSortingOrder
+  updateOnceOnStart: 0
+  baseSortingOrder: 10000
+  orderOffset: 0
+--- !u!114 &2794846220163376953
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
