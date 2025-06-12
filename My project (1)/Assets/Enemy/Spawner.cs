@@ -1,4 +1,8 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using TMPro;
+using UnityEngine.UI;
 
 
 public class Spawner : MonoBehaviour
@@ -15,12 +19,14 @@ public class Spawner : MonoBehaviour
     public int enemiesPerWave = 5;
     public int maxWaves = 5;
 
-    private float globalTimer = 0f;
+    public float globalTimer = 0f;
     private float spawnTimer = 0f;
 
     private int currentWave = 0;
     private int enemiesSpawned = 0;
     private bool isWaveActive = false;
+    
+    public Timer timer;
 
     private enum SpawnerState { Waiting, Spawning, Cooldown }
     private SpawnerState currentState = SpawnerState.Waiting;
@@ -28,13 +34,16 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         globalTimer += Time.deltaTime;
-
+        
         switch (currentState)
         {
             case SpawnerState.Waiting:
+                ActivateSpawner();
+                timer.countdownActive = true;
                 if (globalTimer >= timeBeforeFirstWave)
                 {
                     StartWave();
+                    timer.countdownActive = false;
                 }
                 break;
 
@@ -63,13 +72,19 @@ public class Spawner : MonoBehaviour
                 break;
         }
     }
+    
+    public void ActivateSpawner()
+    {
+        timer.StartCountdown(timeBeforeFirstWave, this);
+    }
+    
 
     void StartWave()
     {
         if (currentWave >= maxWaves)
         {
             Debug.Log("Todas las oleadas completadas");
-            currentState = SpawnerState.Waiting; // O podrías desactivar el Spawner con `enabled = false;`
+            currentState = SpawnerState.Waiting; // O podrï¿½as desactivar el Spawner con `enabled = false;`
             torre.DefenseSucesfully();
             if (GameManager.Instance != null)
             {
