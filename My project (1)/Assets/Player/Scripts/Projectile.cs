@@ -6,8 +6,13 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float moveSpeed = 22f;
     [SerializeField] private int DamagePerBullet;
     [SerializeField] private LayerMask Limits;
+    private Animator animator;
 
     private Vector2 moveDirection;
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
     private void Update()
     {
         MoveProjectile();
@@ -27,13 +32,16 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy enemigo = collision.gameObject.GetComponent<Enemy>();
+        
         if (enemigo != null)
         {
             enemigo.TakeDamage(DamagePerBullet);
+            animator.SetBool("Impact", true);
             ObjectPoolManager.ReturnObjectToPool(this.gameObject);
         }
         if (collision.gameObject.layer== LayerMask.NameToLayer("Limits")) 
         {
+            animator.SetBool("Impact", true);
             ObjectPoolManager.ReturnObjectToPool(this.gameObject);
         }
     }

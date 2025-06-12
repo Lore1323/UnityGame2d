@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  damage: 0
+  currentHealth: -570
   slider: {fileID: 0}
 --- !u!50 &2541261938577605683
 Rigidbody2D:
