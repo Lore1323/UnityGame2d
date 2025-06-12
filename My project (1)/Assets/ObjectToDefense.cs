@@ -21,6 +21,8 @@ public class ObjectToDefense : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private GameObject spawnPointToActivate;
     [SerializeField] private GameObject whiteWindows;
+    [SerializeField] public AudioSource source;
+    [SerializeField] public AudioClip activateSound;
 
 
     public Animator animator;
@@ -55,6 +57,7 @@ public class ObjectToDefense : MonoBehaviour
         if (CheckPlayerInBox())
         {
             spawnPointToActivate.SetActive(true);
+            source.PlayOneShot(activateSound);
         }
     }
     private void Update()

@@ -19,9 +19,10 @@ public class AttackHandler : MonoBehaviour
     [Header("Recarga Especial")]
     [SerializeField] private Slider reloadSlider;
     [SerializeField] private GameObject cohete;
-    [SerializeField] private GameObject specialBulletPrefab; 
+    [SerializeField] private GameObject specialBulletPrefab;
 
-
+    public AudioSource source;
+    public AudioClip shootSound;
     private PlayerController playerController;
     private Animator animator;
     private PlayerMovement movimientoScript;
@@ -93,6 +94,7 @@ public class AttackHandler : MonoBehaviour
             proj.SetDirection(direction);
 
         newBullet.SetActive(true);
+        source.PlayOneShot(shootSound);
         if (currentShots <= ammoIcons.Count)
         {
             int index = ammoIcons.Count - currentShots; // ← inverso

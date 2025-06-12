@@ -6,6 +6,9 @@ public class HealthSystem : MonoBehaviour
 {
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
+    [SerializeField] public AudioSource source;
+    [SerializeField] public AudioClip damageSound;
+    [SerializeField] public AudioClip deathSound;
     
     
     private Animator animator;
@@ -33,11 +36,13 @@ public class HealthSystem : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         currentHealth -= damage;
+        source.PlayOneShot(damageSound);
         slider.value = currentHealth;
     }
     //esta funcion se llama al final de la animacion de muerte del player
     private void Death()
     {
+        source.PlayOneShot(deathSound);
         Destroy(gameObject);
         SceneManager.LoadScene("Derrota");
     }

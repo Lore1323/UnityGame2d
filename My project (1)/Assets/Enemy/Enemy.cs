@@ -19,6 +19,9 @@ public class Enemy : MonoBehaviour
     [Header("References")]
     [SerializeField] public Transform playerTarget;
     [SerializeField] public Transform target;
+    [SerializeField] public AudioSource source;
+    [SerializeField] public AudioClip impact;
+
 
     [SerializeField] private float actualHealth;
     private Transform currentTarget;
@@ -136,6 +139,7 @@ public class Enemy : MonoBehaviour
     {
         if (isDead) return;
         actualHealth -= appliedDamage;
+        source.PlayOneShot(impact);
         actualHealth = Mathf.Clamp(actualHealth, 0,500);
         if (actualHealth <= 0)
         {

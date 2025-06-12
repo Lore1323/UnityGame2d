@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(SpriteRenderer))]
@@ -6,6 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movimiento")]
     [SerializeField] private float moveSpeed = 1f;
+
+    public AudioSource source;
+    public AudioClip footStepClip;
 
     private PlayerController playerController;
     private Vector2 moved;
@@ -44,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
         {
             PlayerInput();
             AdjustPlayerFacingDirection();
+            HandleFootstepSound(); // 🎧 Reproducir sonido aquí
         }
     }
 
@@ -64,8 +68,33 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        if (!AttackHandler.isAttacking && canMove==true ) // Evita movimiento durante ataque y recarga
+        if (!AttackHandler.isAttacking && canMove)
+        {
             rb.MovePosition(rb.position + moved * (moveSpeed * Time.fixedDeltaTime));
+        }
+    }
+
+    // 🎧 Lógica del sonido de pasos
+    private void HandleFootstepSound()
+    {
+        bool isMoving = moved != Vector2.zero && canMove && !AttackHandler.isAttacking;
+
+        if (isMoving)
+        {
+            if (!source.isPlaying)
+            {
+                source.clip = footStepClip;
+                source.loop = true;
+                source.Play();
+            }
+        }
+        else
+        {
+            if (source.isPlaying && source.clip == footStepClip)
+            {
+                source.Stop();
+            }
+        }
     }
 
     private void AdjustPlayerFacingDirection()
@@ -79,4 +108,3 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(originalScale.x, originalScale.y, originalScale.z);
     }
 }
-
