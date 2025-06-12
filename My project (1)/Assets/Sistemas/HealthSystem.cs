@@ -13,7 +13,6 @@ public class HealthSystem : MonoBehaviour
 
     private void Awake()
     {
-        maxHealth = Mathf.Clamp(maxHealth, 0, maxHealth);
         animator = GetComponent<Animator>();
     }
     private void Start()
@@ -25,14 +24,14 @@ public class HealthSystem : MonoBehaviour
     private void Update()
     {
         
-        if (animator != null && maxHealth==0)
+        if (animator != null && currentHealth==0)
         {
             animator.SetBool("IsDead", true);
         }
     }
     public void TakeDamage(float damage)
     {
-        maxHealth = Mathf.Clamp(maxHealth, 0, maxHealth);
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         currentHealth -= damage;
         slider.value = currentHealth;
     }
