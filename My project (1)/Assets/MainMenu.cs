@@ -37,8 +37,12 @@ public class MainMenu : MonoBehaviour
     }
     public void OnEnterSound()
     {
-        HTP.SetActive(false );
+        HTP.SetActive(false);
         Credits.SetActive(false);
         Sound.SetActive(true);
+    }
+    public void OnEnterTutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
     }
 }

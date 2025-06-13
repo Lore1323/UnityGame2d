@@ -3,6 +3,10 @@ using UnityEngine.InputSystem;
 
 public class UIShop : MonoBehaviour
 {
+    [SerializeField]private AudioSource source;
+    [SerializeField] private AudioClip openSound;
+    [SerializeField] private AudioClip closeShop;
+    
     private PlayerController controller;
     public static bool TurretSelected { get; set; } = false;
     public static bool modeShop { get; set; } = false;
@@ -49,5 +53,13 @@ public class UIShop : MonoBehaviour
     public void ActiveFalse()
     {
         AttackHandler.ignoreNextClick = false;
+    }
+    public void OpenShop()
+    {
+        source.PlayOneShot(openSound);
+    }
+    public void CloseShop()
+    {
+        source.PlayOneShot(closeShop);
     }
 }

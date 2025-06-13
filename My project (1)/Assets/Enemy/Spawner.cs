@@ -81,7 +81,8 @@ public class Spawner : MonoBehaviour
 
     void StartWave()
     {
-        if (currentWave >= maxWaves)
+        
+        if (currentWave >= maxWaves && AllEnemiesAreInactive())
         {
             Debug.Log("Todas las oleadas completadas");
             currentState = SpawnerState.Waiting; // O podr�as desactivar el Spawner con `enabled = false;`
@@ -118,5 +119,19 @@ public class Spawner : MonoBehaviour
 
         enemyScript.ResetEnemy();
         enemyScript.SetStats(currentWave);
+    }
+    public bool AllEnemiesAreInactive()
+    {
+        Enemy[] enemies = FindObjectsOfType<Enemy>(true); // 'true' incluye inactivos
+
+        foreach (Enemy enemy in enemies)
+        {
+            if (enemy.gameObject.activeInHierarchy)
+            {
+                return false; // Si al menos uno está activo, no se cumple
+            }
+        }
+
+        return true; // Todos están desactivados
     }
 }

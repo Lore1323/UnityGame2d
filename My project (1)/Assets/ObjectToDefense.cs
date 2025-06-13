@@ -63,7 +63,6 @@ public class ObjectToDefense : MonoBehaviour
     private void Update()
     {
         AssignTargetsToEnemiesInRange();
-
     }
 
     private void AssignTargetsToEnemiesInRange()
