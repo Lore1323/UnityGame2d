@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -26,10 +27,10 @@ public class Spawner : MonoBehaviour
     private int enemiesSpawned = 0;
     private bool isWaveActive = false;
     
-    public Timer timer;
+    public TextMeshProUGUI Text;
 
-    private enum SpawnerState { Waiting, Spawning, Cooldown }
-    private SpawnerState currentState = SpawnerState.Waiting;
+    public enum SpawnerState { Waiting, Spawning, Cooldown, Initial}
+    public SpawnerState currentState = SpawnerState.Initial;
 
     void Update()
     {
@@ -37,13 +38,16 @@ public class Spawner : MonoBehaviour
         
         switch (currentState)
         {
+            case SpawnerState.Initial:
+                Text.SetText("¡Busca una torre para activar!");
+                break;
+            
             case SpawnerState.Waiting:
-                ActivateSpawner();
-                timer.countdownActive = true;
+                Text.SetText("¡Enemigos aproximándose!");
                 if (globalTimer >= timeBeforeFirstWave)
                 {
                     StartWave();
-                    timer.countdownActive = false;
+                    GameManager.Instance.spawner = this;
                 }
                 break;
 
@@ -55,6 +59,7 @@ public class Spawner : MonoBehaviour
                     SpawnEnemy();
                     spawnTimer = 0f;
                     enemiesSpawned++;
+                    Text.SetText("¡Defiende la torre!");
                 }
 
                 if (enemiesSpawned >= enemiesPerWave)
@@ -68,30 +73,25 @@ public class Spawner : MonoBehaviour
                 if (globalTimer >= timeBetweenWaves)
                 {
                     StartWave();
+                    Text.SetText("¡Torre Activada!");
                 }
                 break;
         }
     }
     
-    public void ActivateSpawner()
-    {
-        timer.StartCountdown(timeBeforeFirstWave, this);
-    }
-    
-
     void StartWave()
     {
         
         if (currentWave >= maxWaves && AllEnemiesAreInactive())
         {
             Debug.Log("Todas las oleadas completadas");
-            currentState = SpawnerState.Waiting; // O podr�as desactivar el Spawner con `enabled = false;`
             torre.DefenseSucesfully();
             if (GameManager.Instance != null)
             {
                 GameManager.Instance.RegisterTowerCompleted();
+                currentState = SpawnerState.Initial;
             }
-            Destroy(gameObject);
+            StartCoroutine(CompleteAndRemove());
             return;
         }
        
@@ -101,6 +101,12 @@ public class Spawner : MonoBehaviour
         globalTimer = 0f;
         isWaveActive = true;
         currentState = SpawnerState.Spawning;    
+    }
+    
+    IEnumerator CompleteAndRemove()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
     }
 
 

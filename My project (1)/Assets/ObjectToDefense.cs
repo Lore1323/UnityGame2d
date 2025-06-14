@@ -58,6 +58,8 @@ public class ObjectToDefense : MonoBehaviour
         {
             spawnPointToActivate.SetActive(true);
             source.PlayOneShot(activateSound);
+            Spawner spawner = spawnPointToActivate.GetComponent<Spawner>();
+            spawner.currentState = Spawner.SpawnerState.Waiting;
         }
     }
     private void Update()
@@ -82,7 +84,7 @@ public class ObjectToDefense : MonoBehaviour
     private bool CheckPlayerInBox()
     {
         Vector2 center = (Vector2)transform.position + boxOffset;
-        Collider2D hit = Physics2D.OverlapBox(center, boxSize, 0f, LayerMask.GetMask("Player")); // Asegúrate de que el Player esté en esta layer
+        Collider2D hit = Physics2D.OverlapBox(center, boxSize, 0f, LayerMask.GetMask("Player")); // Asegï¿½rate de que el Player estï¿½ en esta layer
         return hit != null;
     }
 

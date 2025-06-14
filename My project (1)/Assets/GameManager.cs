@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,9 @@ public class GameManager : MonoBehaviour
 
     private int towersCompleted = 0;
     public int totalTowers = 5;
+    
+    public Spawner spawner;
+    public TextMeshProUGUI text;
 
     private void Awake()
     {
@@ -29,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     private void WinGame()
     {
-        Debug.Log("¡Juego ganado!");
+        Debug.Log("ï¿½Juego ganado!");
         SceneManager.LoadScene("Victoria"); 
     }
 }
