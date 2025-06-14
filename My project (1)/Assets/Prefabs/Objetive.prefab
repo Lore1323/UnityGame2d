@@ -483,7 +483,7 @@ MonoBehaviour:
   spawnPointToActivate: {fileID: 0}
   whiteWindows: {fileID: 4412915938281490447}
   source: {fileID: 3651890690022025612}
-  activateSound: {fileID: 8300000, guid: d2201a4536276ad40974d8867cb5b51f, type: 3}
+  activateSound: {fileID: 8300000, guid: 601b37f6a9a7dad43a8a1e72f2ffc29d, type: 3}
   animator: {fileID: 0}
 --- !u!114 &3104630255582718349
 MonoBehaviour:
@@ -500,8 +500,8 @@ MonoBehaviour:
   maxHealth: 500
   currentHealth: 0
   source: {fileID: 3651890690022025612}
-  damageSound: {fileID: 0}
-  deathSound: {fileID: 0}
+  damageSound: {fileID: 8300000, guid: cfd1a4f5ce9dad944ade86e77df5aeb0, type: 3}
+  deathSound: {fileID: 8300000, guid: 4eb760e2c990f9341bb93b91136a5527, type: 3}
   slider: {fileID: 8162984866545653552}
 --- !u!114 &5565967553808907656
 MonoBehaviour:

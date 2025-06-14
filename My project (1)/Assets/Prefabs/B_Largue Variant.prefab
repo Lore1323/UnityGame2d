@@ -92,6 +92,14 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7383719438077572488, guid: fc2ecaa356520c6478b6fd42e1dc609a, type: 3}
+      propertyPath: bulletSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383719438077572488, guid: fc2ecaa356520c6478b6fd42e1dc609a, type: 3}
+      propertyPath: DamagePerBullet
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

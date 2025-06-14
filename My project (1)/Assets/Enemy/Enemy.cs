@@ -99,8 +99,8 @@ public class Enemy : MonoBehaviour
     }
     //esta funcion revisa si el player esta en rango
     private bool CheckPlayerIsInRange()
-    {
-        return Vector2.Distance(playerTarget.position, transform.position) <= detectPlayer;
+    {  
+            return Vector2.Distance(playerTarget.position, transform.position) <= detectPlayer;   
     }
     //esta funcion se encarga del ataque del enemigo y de las animaciones
     private void AttackObjective()
@@ -145,13 +145,14 @@ public class Enemy : MonoBehaviour
         {
             isDead = true;
             myAnimator.SetBool("IsDead", true);
-            ShopManager.Instance.AddCurrency(worth);    
+             
         }
     }
     //esta funcion hace que el enemigo vuelva al PoolManager
     public void ReturnPool()
     {    
         ObjectPoolManager.ReturnObjectToPool(this.gameObject);
+        ShopManager.Instance.AddCurrency(worth);
     }
     public void CantAttackDeath()
     {

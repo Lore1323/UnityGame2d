@@ -111,8 +111,8 @@ MonoBehaviour:
     m_Bits: 8
   bulletPrefab: {fileID: 8663660704242065957, guid: 47777eeb79a5ef540b4660b5f6a2bdee, type: 3}
   firePoint: {fileID: 2327002683296009607}
-  Range: 8
-  Cadence: 1
+  Range: 3.5
+  Cadence: 0.1
 --- !u!58 &2063384901056531385
 CircleCollider2D:
   m_ObjectHideFlags: 0
