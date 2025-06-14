@@ -19,15 +19,15 @@ public class HealthSystem : MonoBehaviour
         animator = GetComponent<Animator>();
     }
     private void Start()
-    {
-        currentHealth= maxHealth;
+    {   
+        currentHealth = maxHealth;
         slider.maxValue = maxHealth;
         slider.value=currentHealth;
+        
     }
     private void Update()
-    {
-        
-        if (animator != null && currentHealth==0)
+    {   
+        if (animator != null && currentHealth<=0)
         {
             animator.SetBool("IsDead", true);
         }
@@ -43,7 +43,10 @@ public class HealthSystem : MonoBehaviour
     private void Death()
     {
         source.PlayOneShot(deathSound);
-        Destroy(gameObject);
+        Invoke("LoadDefeatScene", 1f);
+    }
+    private void LoadDefeatScene()
+    {
         SceneManager.LoadScene("Derrota");
     }
 }

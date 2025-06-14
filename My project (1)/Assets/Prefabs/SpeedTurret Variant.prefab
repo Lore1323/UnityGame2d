@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1923032021682378879, guid: c23e8ce458acb1f4d8878528cc32394b, type: 3}
       propertyPath: Range
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1923032021682378879, guid: c23e8ce458acb1f4d8878528cc32394b, type: 3}
       propertyPath: Cadence
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1923032021682378879, guid: c23e8ce458acb1f4d8878528cc32394b, type: 3}
       propertyPath: bulletPrefab
@@ -54,11 +54,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5254865858811412772, guid: c23e8ce458acb1f4d8878528cc32394b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -36.43
+      value: -53.318806
       objectReference: {fileID: 0}
     - target: {fileID: 5254865858811412772, guid: c23e8ce458acb1f4d8878528cc32394b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.23
+      value: 4.421612
       objectReference: {fileID: 0}
     - target: {fileID: 5254865858811412772, guid: c23e8ce458acb1f4d8878528cc32394b, type: 3}
       propertyPath: m_LocalPosition.z

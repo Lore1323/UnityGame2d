@@ -3,7 +3,8 @@ using UnityEngine;
 public class ShopManager : MonoBehaviour
 {
     public static ShopManager Instance { get; private set; }
-
+    public AudioSource source;
+    public AudioClip addSound;
     public int Currency { get; private set; } = 100;
 
     private void Awake()
@@ -29,5 +30,6 @@ public class ShopManager : MonoBehaviour
     public void AddCurrency(int amount)
     {
         Currency += amount;
+        source.PlayOneShot(addSound);
     }
 }

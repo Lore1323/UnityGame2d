@@ -23,6 +23,10 @@ public class AttackHandler : MonoBehaviour
 
     public AudioSource source;
     public AudioClip shootSound;
+    public AudioClip reloadSound;
+    public AudioClip especialAttackSound;
+    
+
     private PlayerController playerController;
     private Animator animator;
     private PlayerMovement movimientoScript;
@@ -31,7 +35,7 @@ public class AttackHandler : MonoBehaviour
     private bool isReloading = false;
     public static bool isAttacking = false;
     private int reloadCount = 0;
-    private int maxReloads = 4;
+    private int maxReloads = 3;
     public static bool ignoreNextClick = false;
 
     private readonly int Fire_hash = Animator.StringToHash("Fire");
@@ -116,6 +120,7 @@ public class AttackHandler : MonoBehaviour
         isReloading = true;
         movimientoScript.canMove = false;
         animator.SetBool("Recharge",true);
+        
         yield return new WaitForSeconds(reloadTime);
         currentShots = 0;
         isReloading = false;
@@ -134,7 +139,7 @@ public class AttackHandler : MonoBehaviour
         reloadSlider.value = (float)reloadCount / maxReloads;
         if (reloadCount >= maxReloads)
         {
-            cohete.SetActive(true);
+            cohete.SetActive(true); 
         }
     }
     private void TrySpecialAttack()
@@ -151,10 +156,14 @@ public class AttackHandler : MonoBehaviour
             proj.SetDirection(direction);
 
         Cohetee.SetActive(true);
-
+        source.PlayOneShot(especialAttackSound);
         // Reiniciar contador e imagen
         reloadCount = 0;
         reloadSlider.value = 0;
         cohete.SetActive(false);
+    }
+    public void ReloadSound()
+    {
+        source.PlayOneShot(reloadSound);
     }
 }

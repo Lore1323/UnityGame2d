@@ -227,7 +227,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   source: {fileID: 8968392352353416513}
-  damageSound: {fileID: 0}
+  damageSound: {fileID: 8300000, guid: 0941e48e53b60f045aa5d80acd722b44, type: 3}
   deathSound: {fileID: 0}
   slider: {fileID: 0}
 --- !u!50 &2541261938577605683
@@ -346,6 +346,8 @@ MonoBehaviour:
   specialBulletPrefab: {fileID: 1444094512283201628, guid: eea83824c5aa0824eb143742c0cafe9d, type: 3}
   source: {fileID: 8968392352353416513}
   shootSound: {fileID: 8300000, guid: 10592adfb9662db4184da6d4674ce3f9, type: 3}
+  reloadSound: {fileID: 8300000, guid: 406f6b6c88e98de47a95759669129975, type: 3}
+  especialAttackSound: {fileID: 8300000, guid: d1f4299c69c9da34ba989227b5d5fb62, type: 3}
 --- !u!114 &2167347333219130978
 MonoBehaviour:
   m_ObjectHideFlags: 0
