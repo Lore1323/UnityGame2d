@@ -267,7 +267,8 @@ GameObject:
   - component: {fileID: 74705442}
   - component: {fileID: 74705444}
   - component: {fileID: 74705443}
-  - component: {fileID: 74705445}
+  - component: {fileID: 74705446}
+  - component: {fileID: 74705447}
   m_Layer: 0
   m_Name: Exit_Menu
   m_TagString: Untagged
@@ -430,13 +431,28 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!136 &74705445
-CapsuleCollider:
+--- !u!114 &74705446
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74705441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acf7e0b7932e0ab41830d18c302fd836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Portals
+--- !u!70 &74705447
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74705441}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -445,14 +461,25 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.3802004
-  m_Height: 1.8120089
-  m_Direction: 1
-  m_Center: {x: -12.440003, y: -3.5057764, z: 0}
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -12.423861, y: -3.5326562}
+  m_Size: {x: 0.71328354, y: 2.0124388}
+  m_Direction: 0
 --- !u!1 &150623215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,6 +1298,7 @@ GameObject:
   - component: {fileID: 595645474}
   - component: {fileID: 595645476}
   - component: {fileID: 595645475}
+  - component: {fileID: 595645478}
   - component: {fileID: 595645477}
   m_Layer: 0
   m_Name: Enter_TheGame
@@ -1379,7 +1407,7 @@ Tilemap:
       - {fileID: -1678251164886203106, guid: 2b1a5a9ee8062694795ed2ac09a0bfcd, type: 3}
       - {fileID: 378231322344738570, guid: 2b1a5a9ee8062694795ed2ac09a0bfcd, type: 3}
       - {fileID: -4773631299378667110, guid: 2b1a5a9ee8062694795ed2ac09a0bfcd, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -1434,13 +1462,16 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!136 &595645477
-CapsuleCollider:
+--- !u!70 &595645477
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 595645473}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1449,14 +1480,37 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 15.578836, y: -3.5220664}
+  m_Size: {x: 0.7344589, y: 1.9707294}
+  m_Direction: 0
+--- !u!114 &595645478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595645473}
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.3800373
-  m_Height: 1.9075727
-  m_Direction: 1
-  m_Center: {x: 15.545076, y: -3.4731889, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 251da5fb6dbf39043b8d35cc30cf83a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PortalEnterLevel
 --- !u!1 &626581690
 GameObject:
   m_ObjectHideFlags: 0
