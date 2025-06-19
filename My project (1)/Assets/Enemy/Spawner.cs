@@ -43,7 +43,7 @@ public class Spawner : MonoBehaviour
                 break;
             
             case SpawnerState.Waiting:
-                Text.SetText("¡Enemigos aproximándose!");
+                Text.SetText("¡Enemigos aproximandose!");
                 if (globalTimer >= timeBeforeFirstWave)
                 {
                     StartWave();
@@ -84,7 +84,7 @@ public class Spawner : MonoBehaviour
         
         if (currentWave >= maxWaves && AllEnemiesAreInactive())
         {
-            Debug.Log("Todas las oleadas completadas");
+            
             torre.DefenseSucesfully();
             if (GameManager.Instance != null)
             {

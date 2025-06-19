@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     public void RegisterTowerCompleted()
     {
         towersCompleted++;
-        Debug.Log($"Torres completadas: {towersCompleted}/{totalTowers}");
+        
 
         if (towersCompleted >= totalTowers)
         {
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     private void WinGame()
     {
-        Debug.Log("�Juego ganado!");
+        
         SceneManager.LoadScene("Victoria"); 
     }
 }
