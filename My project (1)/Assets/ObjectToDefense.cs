@@ -23,12 +23,15 @@ public class ObjectToDefense : MonoBehaviour
     [SerializeField] private GameObject whiteWindows;
     [SerializeField] public AudioSource source;
     [SerializeField] public AudioClip activateSound;
+    [SerializeField] public GuideArrow arrow;
+
 
 
     public Animator animator;
     public PlayerController controller;
     private void Awake()
     {
+        
         controller = new PlayerController();
         animator = GetComponent<Animator>();
     }
@@ -52,6 +55,7 @@ public class ObjectToDefense : MonoBehaviour
         Handles.color = Color.cyan;
         Handles.DrawWireDisc(transform.position, transform.forward, influenceRange);
     }
+    
     private void Activate()
     {
         if (CheckPlayerInBox())
@@ -60,6 +64,7 @@ public class ObjectToDefense : MonoBehaviour
             source.PlayOneShot(activateSound);
             Spawner spawner = spawnPointToActivate.GetComponent<Spawner>();
             spawner.currentState = Spawner.SpawnerState.Waiting;
+            arrow.OnTowerDefenseStart();
         }
     }
     private void Update()
@@ -104,6 +109,7 @@ public class ObjectToDefense : MonoBehaviour
     }
     public void DefenseSucesfully()
     {
+        arrow.OnTowerDefenseEnd();
         animator.SetBool("WinWaves", true);
     }
 }
